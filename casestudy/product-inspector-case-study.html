@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Product Inspector for Competitor Price Match ▪ Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1E2D3D;
+    --ink-soft: #3B3530;
+    --ink-muted: #7C7268;
+    --paper: #FAF8F5;
+    --paper-warm: #F2EBE0;
+    --accent: #B07435;
+    --accent-soft: #EDD5AB;
+    --rule: #E3DDD6;
+    --highlight: #FBF4EC;
+    --teal: #0D7D77;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+  }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .meta::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--ink-muted);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: clamp(38px, 5.5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .summary {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 760px;
+    padding-left: 24px;
+    border-left: 2px solid var(--accent);
+    margin-bottom: 96px;
+  }
+
+  section { margin-bottom: 88px; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .sep {
+    color: var(--accent);
+    font-size: 0.85em;
+    margin: 0 0.5em;
+    vertical-align: 0.08em;
+    opacity: 0.85;
+  }
+
+  .section-label .sep {
+    margin: 0 0.35em;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: var(--ink-soft);
+    max-width: 760px;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px 48px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .info-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding-top: 4px;
+  }
+
+  .info-value { color: var(--ink); }
+
+  .stakeholder-list { list-style: none; }
+  .stakeholder-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--rule);
+    color: var(--ink-soft);
+  }
+  .stakeholder-list li:last-child { border-bottom: none; }
+  .stakeholder-list li::before {
+    content: "→ ";
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* RACI-style stakeholder table */
+  .raci-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 16px;
+  }
+
+  .raci-table thead th {
+    text-align: left;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+  }
+
+  .raci-table thead th:first-child {
+    width: 34%;
+  }
+
+  .raci-table tbody td {
+    padding: 20px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .raci-table tbody td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  .raci-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .raci-table tr.raci-owner td:first-child {
+    color: var(--accent);
+  }
+
+  .raci-table tr.raci-owner {
+    background: var(--paper-warm);
+  }
+
+  .raci-self {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-left: 6px;
+    font-weight: 500;
+  }
+
+  .approach-step {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .approach-step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .step-body { color: var(--ink-soft); }
+
+  .step-body em {
+    background: var(--highlight);
+    font-style: normal;
+    padding: 2px 6px;
+    color: var(--ink);
+  }
+
+  .criteria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .criterion {
+    background: var(--paper-warm);
+    padding: 24px;
+    border-top: 3px solid var(--accent);
+  }
+
+  .criterion-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .criterion-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* Figures */
+  figure { margin: 28px 0 36px; }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    padding: 16px;
+  }
+
+  /* Thumbnail style for tall images */
+  figure.thumb {
+    margin: 28px 0 36px;
+  }
+
+  figure.thumb .thumb-wrap {
+    position: relative;
+    cursor: zoom-in;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    padding: 16px;
+    overflow: hidden;
+    max-height: 360px;
+    transition: border-color 0.2s ease;
+  }
+
+  figure.thumb .thumb-wrap:hover {
+    border-color: var(--accent);
+  }
+
+  figure.thumb .thumb-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  /* Fade overlay at bottom of thumbnail to signal clipping */
+  figure.thumb .thumb-wrap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    pointer-events: none;
+  }
+
+  figure.thumb .expand-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  figure.thumb .expand-hint::before {
+    content: "⤢  ";
+    font-family: sans-serif;
+    letter-spacing: 0;
+  }
+
+  /* Lightbox overlay */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 45, 61, 0.96);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-inner {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    cursor: default;
+  }
+
+  .lightbox img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    background: #ffffff;
+    padding: 24px;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: var(--paper);
+    border: none;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  body.lightbox-open {
+    overflow: hidden;
+  }
+
+  figcaption {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+    line-height: 1.5;
+    max-width: 760px;
+  }
+
+  figcaption strong {
+    color: var(--ink);
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  .figure-pair {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    margin: 28px 0 36px;
+    align-items: start;
+  }
+
+  .figure-pair figure { margin: 0; }
+
+  .figure-full { margin: 36px 0; }
+
+  .drawbacks {
+    background: var(--paper-warm);
+    padding: 28px 32px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 32px;
+  }
+
+  .drawbacks-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+
+  .drawbacks ol {
+    padding-left: 20px;
+    color: var(--ink);
+  }
+
+  .drawbacks ol li { padding: 6px 0; }
+
+  .decision-block { margin: 48px 0; }
+
+  .decision-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .decision-block h3::before {
+    content: attr(data-marker);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .pivot-callout {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px;
+    margin: 48px 0;
+  }
+
+  .pivot-callout .pivot-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 12px;
+  }
+
+  .pivot-callout h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: var(--paper);
+  }
+
+  .pivot-callout p {
+    color: var(--paper-warm);
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 15px;
+  }
+
+  .comparison-table thead th {
+    text-align: left;
+    padding: 16px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+    border-bottom: 2px solid var(--ink);
+    background: var(--paper-warm);
+  }
+
+  .comparison-table thead th:last-child {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .comparison-table tbody td {
+    padding: 18px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .comparison-table tbody td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    color: var(--ink);
+    width: 19%;
+  }
+
+  .comparison-table tbody td:last-child {
+    background: rgba(176, 116, 53, 0.05);
+    color: var(--ink);
+    font-weight: 500;
+    border-left: 2px solid var(--accent);
+  }
+
+  .evidence-block { margin-top: 48px; }
+
+  .evidence-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .evidence-block > p { margin-bottom: 24px; }
+
+  footer {
+    margin-top: 120px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 760px) {
+    .container { padding: 48px 24px 80px; }
+    .info-grid { grid-template-columns: 1fr; gap: 8px; }
+    .info-label { padding-top: 16px; }
+    .criteria { grid-template-columns: 1fr; }
+    .approach-step { grid-template-columns: 48px 1fr; gap: 16px; }
+    .step-num { font-size: 36px; }
+    .figure-pair { grid-template-columns: 1fr; }
+
+    .raci-table thead { display: none; }
+    .raci-table tbody tr {
+      display: block;
+      border: 1px solid var(--rule);
+      margin-bottom: 12px;
+      padding: 8px;
+    }
+    .raci-table tbody tr.raci-owner {
+      border-color: var(--accent);
+    }
+    .raci-table tbody td {
+      display: block;
+      border-bottom: none;
+      padding: 8px;
+      width: 100% !important;
+    }
+    .raci-table tbody td:first-child {
+      font-size: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .raci-table tr.raci-owner td:first-child {
+      color: var(--accent);
+    }
+
+    .comparison-table thead { display: none; }
+    .comparison-table tbody tr {
+      display: block;
+      border: 1px solid var(--rule);
+      margin-bottom: 16px;
+      padding: 8px;
+    }
+    .comparison-table tbody td {
+      display: block;
+      border-bottom: 1px dashed var(--rule);
+      padding: 10px 8px;
+      width: 100% !important;
+    }
+    .comparison-table tbody td:last-child { border-bottom: none; }
+    .comparison-table tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 11px; }
+  }
+
+
+  /* Disclaimer */
+  .disclaimer {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    padding: 20px 24px;
+    border-left: 3px solid var(--rule);
+    background: var(--paper-warm);
+    margin: 64px 0 0;
+    max-width: 760px;
+  }
+  /* ---- Portfolio-wide fixed navigation ---- */
+  .portfolio-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 48px;
+    z-index: 500;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+    margin: 0; padding: 0;
+  }
+  .nav-links a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(248,250,252,0.68);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--paper); }
+  .nav-links a.active {
+    color: var(--paper);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .nav-email {
+    color: rgba(250,248,245,0.45) !important;
+    font-size: 12px !important;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 20px !important;
+    margin-left: 4px;
+  }
+  .nav-email:hover { color: var(--paper) !important; }
+  @media (max-width: 768px) {
+    .portfolio-nav { padding: 0 20px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="portfolio-nav" aria-label="Main navigation">
+  <ul class="nav-links">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../HDB-timeline/timeline-case-study.html">Application Timeline</a></li>
+    <li><a href="../DesignSystem-Milestone/milestone-component-case-study.html">Milestone Component</a></li>
+    <li><a href="product-inspector-case-study.html" class="active">Product Inspector</a></li>
+    <li><a href="mailto:colettefung@gmail.com" class="nav-email">colettefung@gmail.com</a></li>
+  </ul>
+</nav>
+<div class="container" style="margin-top: 60px;">
+
+  <div class="meta">
+    <span>Case Study</span>
+    <span>Product Design</span>
+  </div>
+
+  <h1><em>Product Inspector</em> for Competitor Price Match</h1>
+
+  <p class="summary">
+    The pricing system regularly suggests new prices based on the prices of the same products on competitors' websites. Managers would decide if they want to match the product prices with the competitors'. These price suggestions were listed out in table view, together with price suggestions from other channels, such as those manually uploaded by users. <strong>Managers need a dedicated view for checking price recommendations on product level to decide on price matching product by product.</strong>
+  </p>
+
+  <!-- SECTION 01 -->
+  <section>
+    <div class="section-label">01 <span class="sep">▪</span> Key Stakeholders</div>
+    <h2>Who was involved in this project</h2>
+
+    <table class="raci-table">
+      <thead>
+        <tr>
+          <th>Stakeholder</th>
+          <th>Role in Project</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="raci-owner">
+          <td>UX Designer <span class="raci-self">(me)</span></td>
+          <td>Led end-to-end design from wireframing through usability testing; scoped relevant data fields, conducted user research, iterated on prototypes and delivered the final MVP design</td>
+        </tr>
+        <tr>
+          <td>Product Manager</td>
+          <td>Collaborated on scoping and listing all available price match data fields; aligned on feature requirements and the 4-week design timeline</td>
+        </tr>
+        <tr>
+          <td>Pricing Managers, Australia</td>
+          <td>Primary end users; responsible for reviewing competitor price recommendations and approving or rejecting them product by product. Participated in usability testing in Iteration 2</td>
+        </tr>
+        <tr>
+          <td>Users from Other Regions</td>
+          <td>Participated in Iteration 1 discovery interviews; their feedback informed the strategic decision to narrow the design focus to the Australian market</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 02 -->
+  <section>
+    <div class="section-label">02 <span class="sep">▪</span> Context &amp; Approach</div>
+    <h2>Scoping the problem before designing the solution</h2>
+
+    <p>The pricing platform regularly suggested new prices by checking the same products on competitors' websites. These suggestions were listed in a shared table view alongside price changes from other channels, with over <strong>30 columns</strong> of data, making it difficult for managers to evaluate any single product with focus.</p>
+
+    <p>Rather than designing a new view around all existing data, my objective was to determine which data were <strong>truly relevant to competitor price matching</strong>, so the UI would show only what was necessary for managers to make confident decisions.</p>
+
+    <div class="approach-step">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">Audit the data before touching the interface</div>
+        <div class="step-body">
+          The Product Manager and I listed out all available price match data and identified a few additional metrics that might be helpful. <em>Starting with data scoping rather than wireframes prevented the new view from inheriting the clutter of the table it was replacing.</em> I then built a high-fidelity wireframe using existing design system components to make the first prototype testable quickly.
+
+          <figure class="figure-full thumb">
+            <div class="thumb-wrap" data-full="images/iteration1_modelonPriceList.png" data-alt="Iteration 1 wireframe placed within the live Price List screen">
+              <img src="images/iteration1_modelonPriceList.png" alt="Iteration 1 wireframe placed within the live Price List screen">
+              <span class="expand-hint">Click to expand</span>
+            </div>
+            <figcaption><strong>Iteration 1 · Wireframe in context</strong>The inspector modal placed within the live Price List screen, showing the Attributes tab. Data was grouped under three tabs: Attributes, KPI and Price History.</figcaption>
+          </figure>
+
+          <div class="tab-carousel" id="iter1-carousel">
+            <div class="tab-carousel__tabs" role="tablist">
+              <button class="tab-carousel__tab is-active" role="tab" aria-selected="true" aria-controls="iter1-panel-0" data-index="0">Attributes</button>
+              <button class="tab-carousel__tab" role="tab" aria-selected="false" aria-controls="iter1-panel-1" data-index="1">KPI</button>
+              <button class="tab-carousel__tab" role="tab" aria-selected="false" aria-controls="iter1-panel-2" data-index="2">Price History</button>
+            </div>
+            <div class="tab-carousel__track">
+              <div class="tab-carousel__panel is-active" id="iter1-panel-0" role="tabpanel">
+                <figure>
+                  <img src="images/iteration1_attributes.png" alt="Iteration 1, Attributes tab">
+                  <figcaption><strong>Iteration 1 · Attributes tab</strong>Showing catalogue and stock details.</figcaption>
+                </figure>
+              </div>
+              <div class="tab-carousel__panel" id="iter1-panel-1" role="tabpanel">
+                <figure>
+                  <img src="images/iteration1_clicked_kpi.png" alt="Iteration 1, KPI tab">
+                  <figcaption><strong>Iteration 1 · KPI tab</strong>Surfacing margin metrics.</figcaption>
+                </figure>
+              </div>
+              <div class="tab-carousel__panel" id="iter1-panel-2" role="tabpanel">
+                <figure>
+                  <img src="images/iteration1_clicked_price-history.png" alt="Iteration 1, Price History tab">
+                  <figcaption><strong>Iteration 1 · Price History tab</strong>Showing the recommended price trend over time, using internal platform price records.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="approach-step">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">Test broadly first, then narrow the target</div>
+        <div class="step-body">
+          Since the feature was planned for all regions, Iteration 1 interviews included users outside Australia. Users were asked to share their existing price-matching workflow and provide feedback on the wireframes. <em>Testing across regions before committing to a single design direction revealed a critical user segmentation issue.</em>
+
+          <div class="drawbacks">
+            <div class="drawbacks-label">Takeaways from Iteration 1: All Regions</div>
+            <ol>
+              <li>Data on the competitor's prices was more insightful than data on internal platform prices. The price history chart showed inhouse records, not the competitor's, telling users little about the product's performance outside the platform.</li>
+              <li>Categorising data under "Attributes" and "KPI" caused confusion. The labels sounded too similar. One user suggested renaming "KPI" to "Margins", which better matched their business unit's mental model.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="approach-step">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-title">Make a strategic pivot based on user evidence</div>
+        <div class="step-body">
+          A key finding from Iteration 1 changed the design direction: <strong>most participants outside Australia said they did not foresee themselves using a product inspector view.</strong> In their operations, they tended to check prices across a list of products rather than reviewing one product at a time. I made the decision to focus the design on pricing managers for the Australian market and adjusted the design accordingly.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03 -->
+  <section>
+    <div class="section-label">03 <span class="sep">▪</span> Design Decisions</div>
+    <h2>Refining the design for the Australian market</h2>
+
+    <p>With the target user clarified, I restructured the design around the decisions that Australian pricing managers actually needed to make: is this the right competitor product? And does our platform have room to adjust its price?</p>
+
+    <div class="decision-block">
+      <h3 data-marker="Iteration">Iteration 2 prototype: reoriented for Australia</h3>
+      <p>I adjusted the design to emphasise competitor data over internal data, showing the competitor's product picture alongside the platform's, and surfacing size availability as a primary data point. User interactions including approving prices, rejecting them, reporting a wrong match and navigating to the next SKU were also built into this prototype.</p>
+
+      <div class="figure-pair">
+        <figure>
+          <img src="images/iteration2_pricedetailstab.png" alt="Iteration 2, Main inspector view with side-by-side product images">
+          <figcaption><strong>Iteration 2 · Main inspector view</strong>Redesigned inspector with side-by-side product images from own platform and a competitor, size availability percentages, and a View Price History button.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/iteration2_pricehistorytab.png" alt="Iteration 2, Price history expanded view">
+          <figcaption><strong>Iteration 2 · Price history expanded</strong>Price history expanded into a full view with a Back button, showing own platform price trend over 6 months alongside highest, lowest and recommended price figures.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="decision-block">
+      <h3 data-marker="Validation">Usability testing: Australia-focused</h3>
+      <p>Iteration 2 interviews focused on managers from the Australian market. The updated prototype was tested with this group to validate the design direction and surface any remaining friction.</p>
+
+      <div class="drawbacks">
+        <div class="drawbacks-label">Takeaways from Iteration 2: Australian Managers</div>
+        <ol>
+          <li>Competitor product pictures and size availability are the most critical data for deciding on a price match and verifying that the system is comparing the right products.</li>
+          <li>Users welcomed new interactions like reporting a wrong match and navigating to the next item. They were glad they could stay in this view to run through multiple products without returning to the table.</li>
+          <li>Price change history in a chart sounded like a good idea, but one user flagged that it would not be insightful in Australia's market. Legal restrictions in Australia mandate that prices cannot exceed the initial price points set by the merchant, so the price trend would always be a downtrend, making the chart uninformative.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="pivot-callout">
+      <div class="pivot-label">The Key Decision</div>
+      <h3>Cutting the price history chart from MVP scope</h3>
+      <p>The price history chart had been part of the design since the initial wireframe. Despite sounding useful, the usability test with Australian managers revealed it would add visual noise without aiding decisions in this market. I made the call to remove it from the MVP. That decision was grounded in user evidence rather than assumption, and kept the final design focused on what was genuinely decision-relevant.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 04 -->
+  <section>
+    <div class="section-label">04 <span class="sep">▪</span> Final MVP Design</div>
+    <h2>A focused view built for confident decisions</h2>
+
+    <p>The final Product Inspector was not a rearrangement of the existing 30-column table. It was a purpose-built view designed around the decisions Australian pricing managers needed to make, validated through two iterations of user research.</p>
+
+    <div class="figure-pair" style="grid-template-columns: 2fr 1fr;">
+      <figure>
+        <img src="images/final_design.png" alt="Final MVP design of the Product Inspector">
+        <figcaption><strong>Final MVP · Full view</strong>Final design showing side-by-side product images with exact size lists, full pricing and inventory data, and the complete action bar.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/final_design_actionBar.png" alt="Final MVP, action bar close-up">
+        <figcaption><strong>Final MVP · Action bar</strong>Close-up of the action bar: Approve Price, Close, Prev SKU and Next SKU accessible in one place without leaving the inspector.</figcaption>
+      </figure>
+    </div>
+
+    <div class="criteria">
+      <div class="criterion">
+        <div class="criterion-title">Side-by-side images</div>
+        <div class="criterion-desc">Competitor and platform product pictures placed together for quick visual verification that the system is comparing the correct products.</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-title">Size availability</div>
+        <div class="criterion-desc">Exact size lists, not just percentages, exposed inventory gaps useful for determining whether there is room to adjust pricing.</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-title">Workflow continuity</div>
+        <div class="criterion-desc">All critical actions (approve, reject, report wrong match, navigate to next or previous SKU) are accessible without leaving the Product Inspector.</div>
+      </div>
+    </div>
+
+    <div class="evidence-block">
+      <h3>Original wireframe vs. final MVP</h3>
+      <p>The table below captures the three most significant decisions made between the initial wireframe and the final MVP.</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Initial Wireframe</th>
+            <th>Final MVP</th>
+            <th>Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Dimension">Data focus</td>
+            <td data-label="Initial Wireframe">Showed internal platform prices alongside competitor data, mirroring the existing table</td>
+            <td data-label="Final MVP">Prioritised competitor data (product image and size availability) as the primary decision inputs</td>
+            <td data-label="Rationale">Internal data told users little about how the product performed outside the platform</td>
+          </tr>
+          <tr>
+            <td data-label="Dimension">Price history chart</td>
+            <td data-label="Initial Wireframe">Included as a feature showing price trends over time</td>
+            <td data-label="Final MVP">Removed from MVP scope</td>
+            <td data-label="Rationale">Legal restrictions in Australia mean prices can only trend downward, making the chart uninformative for this market</td>
+          </tr>
+          <tr>
+            <td data-label="Dimension">Target market</td>
+            <td data-label="Initial Wireframe">Designed for all regions based on a global user group</td>
+            <td data-label="Final MVP">Focused on Australian managers following Iteration 1 research</td>
+            <td data-label="Rationale">Users outside Australia tended to review prices in list view rather than product by product, so narrowing the target prevented designing for a user who would not use the feature</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reflection-block" style="border-top-color: var(--accent); margin-top: 48px;">
+      <div class="reflection-label">Outcomes</div>
+      <p>The usability test with Australian managers confirmed the design direction before handoff. Participants responded positively to the side-by-side product image layout and size availability data, identifying these as the most useful inputs for price-match decisions. The workflow continuity principle of keeping approve, reject and navigation actions within the inspector was validated when users noted they could move through multiple products without returning to the table. The MVP was scoped and delivered within the 4-week design timeline and handed off to the development team for build.</p>
+    </div>
+
+    <div class="reflection-block">
+      <div class="reflection-label">What I'd do differently</div>
+      <p>Conducting region-specific user research earlier would have saved iteration time. Including non-Australian users in Iteration 1 introduced noise into the requirements and prompted a mid-project pivot in design direction. In future, I would align research participant criteria with the primary use case before building the first prototype, as defining the target user is a scoping decision, not a discovery outcome.</p>
+      <p>I would also invest more in the accessibility of the UI, particularly link and button contrast. The Product Inspector is data-heavy by nature, and higher contrast standards would reduce attention load for Pricing Managers, helping them action price decisions faster and with greater confidence.</p>
+    </div>
+  </section>
+
+  <p class="disclaimer">Some visuals have been adapted to highlight key design decisions and avoid reproducing product interfaces in full.</p>
+
+  <footer>
+    <span>Competitor Price Match · Case Study</span>
+    <span>Colette Fung</span>
+  </footer>
+
+</div>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Expanded image view">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close expanded image">Close ✕</button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const thumbs = document.querySelectorAll('.thumb-wrap');
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      setTimeout(() => { lightboxImg.src = ''; }, 200);
+    }
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const full = thumb.getAttribute('data-full');
+        const alt = thumb.getAttribute('data-alt');
+        openLightbox(full, alt);
+      });
+      thumb.setAttribute('tabindex', '0');
+      thumb.setAttribute('role', 'button');
+      thumb.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          thumb.click();
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+    // Tab carousels
+    document.querySelectorAll('.tab-carousel').forEach(carousel => {
+      const tabs = carousel.querySelectorAll('.tab-carousel__tab');
+      const panels = carousel.querySelectorAll('.tab-carousel__panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const index = parseInt(tab.getAttribute('data-index'));
+          tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+          panels.forEach(p => p.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
+          panels[index].classList.add('is-active');
+        });
+      });
+    });
+
+  })();
+</script>
+
+</body>
+</html>
