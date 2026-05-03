@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Colette Fung - Senior UX Designer</title>
+  <meta name="description" content="Portfolio of Colette Fung, Senior UX Designer based in Singapore." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---- Reset ---- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ---- Tokens ---- */
+    :root {
+      --navy:      #1E2D3D;
+      --white:     #FAF8F5;
+      --blue:      #B07435;
+      --blue-light:#EDD5AB;
+      --blue-faint:#FBF4EC;
+      --gray:      #7C7268;
+      --gray-dark: #3B3530;
+      --border:    #E3DDD6;
+      --teal:      #0D7D77;
+      --nav-h:     60px;
+    }
+
+    /* ---- Base ---- */
+    body {
+      background: var(--white);
+      color: var(--navy);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Fixed Nav ---- */
+    .portfolio-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 48px;
+      z-index: 500;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(248,250,252,0.68);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active {
+      color: var(--white);
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 2px;
+    }
+    .nav-email {
+      color: rgba(248,250,252,0.45) !important;
+      font-size: 12px !important;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 20px !important;
+      margin-left: 4px;
+    }
+    .nav-email:hover { color: var(--white) !important; }
+    @media (max-width: 768px) {
+      .portfolio-nav { padding: 0 20px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 12px; }
+    }
+
+    /* ---- Layout ---- */
+    main {
+      padding-top: var(--nav-h);
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 48px;
+      padding-right: 48px;
+      padding-bottom: 120px;
+    }
+    @media (max-width: 600px) {
+      main { padding-left: 24px; padding-right: 24px; }
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 72px;
+      padding: 96px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-text { flex: 1; min-width: 0; }
+    .portrait-img {
+      width: 192px;
+      height: 192px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      flex-shrink: 0;
+      border: 3px solid var(--border);
+      box-shadow: 0 4px 24px rgba(30,45,61,0.10);
+    }
+    @media (max-width: 640px) {
+      .hero { flex-direction: column-reverse; gap: 36px; align-items: flex-start; }
+      .portrait-img { width: 120px; height: 120px; }
+    }
+    .hero-eyebrow {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--gray-dark);
+      max-width: 680px;
+      padding-left: 20px;
+      border-left: 3px solid var(--blue);
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      padding: 72px 0 0;
+    }
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    /* ---- About prose ---- */
+    .about-prose p {
+      font-size: 17px;
+      color: var(--gray-dark);
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+    .about-prose p:last-child { margin-bottom: 0; }
+
+    /* ---- Qual grid ---- */
+    .qual-block { margin-bottom: 52px; }
+    .qual-block:last-child { margin-bottom: 0; }
+    .qual-block-title {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    /* Education entries */
+    .edu-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+    .edu-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 32px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-year {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+    .edu-body {}
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .edu-inst {
+      font-size: 14px;
+      color: var(--gray);
+    }
+    .edu-note {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    /* Work entries */
+    .work-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+    .work-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .work-period {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      color: var(--gray);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+    .work-body {}
+    .work-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .work-company {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .work-desc {
+      font-size: 15px;
+      color: var(--gray-dark);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* Languages */
+    .lang-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .lang-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue-faint);
+      border: 1px solid var(--blue-light);
+      border-radius: 4px;
+      padding: 10px 18px;
+    }
+    .lang-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .lang-level {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    /* ---- Footer ---- */
+    .site-footer {
+      margin-top: 96px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      color: var(--gray);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+
+    @media (max-width: 600px) {
+      .edu-item, .work-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .edu-year, .work-period { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed navigation -->
+  <nav class="portfolio-nav" aria-label="Main navigation">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="casestudy/HDB-timeline/timeline-case-study.html">Application Timeline</a></li>
+      <li><a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html">Milestone Component</a></li>
+      <li><a href="casestudy/GFG-productInspector/product-inspector-case-study.html">Product Inspector</a></li>
+      <li><a href="mailto:colettefung@gmail.com" class="nav-email">colettefung@gmail.com</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Senior UX Designer · Singapore</p>
+        <h1>Colette Fung</h1>
+        <p class="hero-subtitle">Over a decade in digital and UX design, grounded in Psychology and Information Systems</p>
+      </div>
+      <img src="portrait.jpg" alt="Colette Fung" class="portrait-img">
+    </section>
+
+    <!-- ABOUT ME -->
+    <section class="section" id="about">
+      <h2>Curiosity as a career strategy</h2>
+      <div class="about-prose">
+        <p>I am a curious learner at heart, and that curiosity has shaped the way I have built my career. My bachelor's degree in Psychology gave me a strong foundation in research methods and understanding human behaviour, which has translated naturally into UX research throughout my work.</p>
+        <p>As AI continues to reshape our field, I felt the pull to look beyond design and went back to the classroom. I recently completed my Master of Science in Information Systems at Nanyang Technological University, pursued part-time alongside my full-time design role.</p>
+        <p>Rather than choosing electives closer to my existing strengths, I took on more technical ones, including Python, Java and XML for mobile, SQL, and AWS. They stretched me, and gave me a much clearer sense of how IT systems interlace with one another.</p>
+        <p>The programme also reminded me that as AI tools grow more abundant, judgement and critical thinking are what set us apart. Knowing how the pieces fit together is what equips me to synthesise the noise, weigh the trade-offs, and make sound design decisions in this evolving landscape.</p>
+        <p>When I am not designing, you will probably find me on a hiking trail or planning my next trip. My hiking journey started with Mount Kinabalu, and two years later I made it up Mount Fuji at sunrise. These days, I keep the habit alive with occasional hikes around Malaysia and Hong Kong.</p>
+      </div>
+    </section>
+
+    <!-- QUALIFICATIONS -->
+    <section class="section" id="qualifications">
+      <p class="section-label">Qualifications</p>
+      <h2>Education and experience</h2>
+
+      <!-- Education -->
+      <div class="qual-block">
+        <p class="qual-block-title">Education</p>
+        <ul class="edu-list">
+          <li class="edu-item">
+            <span class="edu-year">2024 – 2026</span>
+            <div class="edu-body">
+              <div class="edu-degree">Master of Science in Information Systems</div>
+              <div class="edu-inst">Nanyang Technological University, Singapore &middot; Part-time</div>
+              <span class="edu-note">Expected Jun 2026</span>
+            </div>
+          </li>
+          <li class="edu-item">
+            <span class="edu-year">Aug 2025</span>
+            <div class="edu-body">
+              <div class="edu-degree">UX Certificate</div>
+              <div class="edu-inst">Nielsen Norman Group &middot; Certificate ID1076703</div>
+            </div>
+          </li>
+          <li class="edu-item">
+            <span class="edu-year">2003 – 2006</span>
+            <div class="edu-body">
+              <div class="edu-degree">Bachelor of Social Sciences, Psychology</div>
+              <div class="edu-inst">The University of Hong Kong &middot; Full-time</div>
+            </div>
+          </li>
+          <li class="edu-item">
+            <span class="edu-year">2007</span>
+            <div class="edu-body">
+              <div class="edu-degree">Diploma in Multimedia Graphic Design</div>
+              <div class="edu-inst">Hong Kong Productivity Council &middot; Part-time</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Work History -->
+      <div class="qual-block">
+        <p class="qual-block-title">Design-related Work History</p>
+        <ul class="work-list">
+          <li class="work-item">
+            <span class="work-period">Apr 2023 – Present</span>
+            <div class="work-body">
+              <div class="work-title">Senior UX Designer</div>
+              <div class="work-company">Housing and Development Board (HDB), Singapore</div>
+              <p class="work-desc">UX design and design systems governance for citizen-facing portals and e-services at Singapore's public housing authority. Sole owner of the internal design system; leading BTO journey UX since early 2026.</p>
+            </div>
+          </li>
+          <li class="work-item">
+            <span class="work-period">Apr 2019 – Oct 2022</span>
+            <div class="work-body">
+              <div class="work-title">UX Designer</div>
+              <div class="work-company">Global Fashion Group (GFG), Singapore</div>
+              <p class="work-desc">Product design for B2B e-commerce platforms (ZALORA, THE ICONIC, Dafiti, Lamoda) across Malaysia, Singapore, Thailand and Australia markets. End-to-end UX from discovery to delivery in an Agile environment.</p>
+            </div>
+          </li>
+          <li class="work-item">
+            <span class="work-period">Apr 2013 – Apr 2019</span>
+            <div class="work-body">
+              <div class="work-title">Web Builder</div>
+              <div class="work-company">Carlson Wagonlit Singapore (CWT)</div>
+              <p class="work-desc">Front-end web design for corporate event websites and attendee management platforms, serving international clients including Hewlett-Packard across Asia Pacific and Japan.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Languages -->
+      <div class="qual-block">
+        <p class="qual-block-title">Languages</p>
+        <ul class="lang-list">
+          <li class="lang-pill">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Fluent</span>
+          </li>
+          <li class="lang-pill">
+            <span class="lang-name">Mandarin</span>
+            <span class="lang-level">Fluent</span>
+          </li>
+          <li class="lang-pill">
+            <span class="lang-name">Cantonese</span>
+            <span class="lang-level">Native</span>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="yr"></span> Colette Fung &nbsp;&middot;&nbsp; <a href="mailto:colettefung@gmail.com" style="color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--border);">colettefung@gmail.com</a></p>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
