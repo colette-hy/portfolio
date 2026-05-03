@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>One timeline, four teams, two views ▪ Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1E2D3D;
+    --ink-soft: #3B3530;
+    --ink-muted: #7C7268;
+    --paper: #FAF8F5;
+    --paper-warm: #F2EBE0;
+    --accent: #B07435;
+    --accent-soft: #EDD5AB;
+    --rule: #E3DDD6;
+    --highlight: #FBF4EC;
+    --teal: #0D7D77;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+  }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .meta::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--ink-muted);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: clamp(38px, 5.5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .summary {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 760px;
+    padding-left: 24px;
+    border-left: 2px solid var(--accent);
+    margin-bottom: 96px;
+  }
+
+  section { margin-bottom: 88px; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .sep {
+    color: var(--accent);
+    font-size: 0.85em;
+    margin: 0 0.5em;
+    vertical-align: 0.08em;
+    opacity: 0.85;
+  }
+
+  .section-label .sep {
+    margin: 0 0.35em;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: var(--ink-soft);
+    max-width: 760px;
+  }
+
+  p strong { color: var(--ink); font-weight: 500; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px 48px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .info-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding-top: 4px;
+  }
+
+  .info-value { color: var(--ink); }
+
+  .stakeholder-list { list-style: none; }
+  .stakeholder-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--rule);
+    color: var(--ink-soft);
+  }
+  .stakeholder-list li:last-child { border-bottom: none; }
+  .stakeholder-list li::before {
+    content: "→ ";
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* RACI-style stakeholder table */
+  .raci-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 16px;
+  }
+
+  .raci-table thead th {
+    text-align: left;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+  }
+
+  .raci-table thead th:first-child {
+    width: 34%;
+  }
+
+  .raci-table tbody td {
+    padding: 20px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .raci-table tbody td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  .raci-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .raci-table tr.raci-owner td:first-child {
+    color: var(--accent);
+  }
+
+  .raci-table tr.raci-owner {
+    background: var(--paper-warm);
+  }
+
+  .raci-self {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-left: 6px;
+    font-weight: 500;
+  }
+
+  .approach-step {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .approach-step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .step-body { color: var(--ink-soft); }
+
+  .step-body em {
+    background: var(--highlight);
+    font-style: normal;
+    padding: 2px 6px;
+    color: var(--ink);
+  }
+
+  .criteria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .criterion {
+    background: var(--paper-warm);
+    padding: 24px;
+    border-top: 3px solid var(--accent);
+  }
+
+  .criterion-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .criterion-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* Figures */
+  figure { margin: 28px 0 36px; }
+
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    padding: 16px;
+  }
+
+  /* Thumbnail style for tall images */
+  figure.thumb {
+    margin: 28px 0 36px;
+  }
+
+  figure.thumb .thumb-wrap {
+    position: relative;
+    cursor: zoom-in;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    padding: 16px;
+    overflow: hidden;
+    max-height: 360px;
+    transition: border-color 0.2s ease;
+  }
+
+  figure.thumb .thumb-wrap:hover {
+    border-color: var(--accent);
+  }
+
+  figure.thumb .thumb-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  /* Fade overlay at bottom of thumbnail to signal clipping */
+  figure.thumb .thumb-wrap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    pointer-events: none;
+  }
+
+  figure.thumb .expand-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  figure.thumb .expand-hint::before {
+    content: "⤢  ";
+    font-family: sans-serif;
+    letter-spacing: 0;
+  }
+
+  /* Lightbox overlay */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 45, 61, 0.96);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-inner {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    cursor: default;
+  }
+
+  .lightbox img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    background: #ffffff;
+    padding: 24px;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: var(--paper);
+    border: none;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  body.lightbox-open {
+    overflow: hidden;
+  }
+
+  figcaption {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+    line-height: 1.5;
+    max-width: 760px;
+  }
+
+  figcaption strong {
+    color: var(--ink);
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  .figure-pair {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    margin: 28px 0 36px;
+    align-items: start;
+  }
+
+  .figure-pair figure { margin: 0; }
+
+  .figure-full { margin: 36px 0; }
+
+  .drawbacks {
+    background: var(--paper-warm);
+    padding: 28px 32px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 32px;
+  }
+
+  .drawbacks-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+
+  .drawbacks ol {
+    padding-left: 20px;
+    color: var(--ink);
+  }
+
+  .drawbacks ol li { padding: 6px 0; }
+
+  .decision-block { margin: 48px 0; }
+
+  .decision-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .decision-block h3::before {
+    content: attr(data-marker);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .pivot-callout {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px;
+    margin: 48px 0;
+  }
+
+  .pivot-callout .pivot-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-bottom: 12px;
+  }
+
+  .pivot-callout h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: var(--paper);
+  }
+
+  .pivot-callout p {
+    color: var(--paper-warm);
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 15px;
+  }
+
+  .comparison-table thead th {
+    text-align: left;
+    padding: 16px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+    border-bottom: 2px solid var(--ink);
+    background: var(--paper-warm);
+  }
+
+  .comparison-table thead th:last-child {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .comparison-table tbody td {
+    padding: 18px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .comparison-table tbody td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    color: var(--ink);
+    width: 19%;
+  }
+
+  .comparison-table tbody td:last-child {
+    background: rgba(176, 116, 53, 0.05);
+    color: var(--ink);
+    font-weight: 500;
+    border-left: 2px solid var(--accent);
+  }
+
+  .evidence-block { margin-top: 48px; }
+
+  .evidence-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .evidence-block > p { margin-bottom: 24px; }
+
+  footer {
+    margin-top: 120px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 760px) {
+     .container { padding: 48px 24px 80px; }
+    .approach-step { grid-template-columns: 48px 1fr; gap: 16px; }
+    .step-num { font-size: 32px; }
+ 
+    .pivot-callout { padding: 28px 24px; }
+    .pivot-callout h3 { font-size: 22px; }
+ 
+    .timeline-graphic { padding: 20px 12px; }
+ 
+    .phone-frame { max-width: 180px; }
+    .phone-frame .phone-screen img { max-height: 300px; }
+    .hero-preview { grid-template-columns: 1fr !important; }
+    .container { padding: 48px 24px 80px; }
+    .info-grid { grid-template-columns: 1fr; gap: 8px; }
+    .info-label { padding-top: 16px; }
+    .criteria { grid-template-columns: 1fr; }
+    .approach-step { grid-template-columns: 48px 1fr; gap: 16px; }
+    .step-num { font-size: 36px; }
+    .figure-pair { grid-template-columns: 1fr; }
+
+    .raci-table thead { display: none; }
+    .raci-table tbody tr {
+      display: block;
+      border: 1px solid var(--rule);
+      margin-bottom: 12px;
+      padding: 8px;
+    }
+    .raci-table tbody tr.raci-owner {
+      border-color: var(--accent);
+    }
+    .raci-table tbody td {
+      display: block;
+      border-bottom: none;
+      padding: 8px;
+      width: 100% !important;
+    }
+    .raci-table tbody td:first-child {
+      font-size: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .raci-table tr.raci-owner td:first-child {
+      color: var(--accent);
+    }
+
+    .comparison-table thead { display: none; }
+    .comparison-table tbody tr {
+      display: block;
+      border: 1px solid var(--rule);
+      margin-bottom: 16px;
+      padding: 8px;
+    }
+    .comparison-table tbody td {
+      display: block;
+      border-bottom: 1px dashed var(--rule);
+      padding: 10px 8px;
+      width: 100% !important;
+    }
+    .comparison-table tbody td:last-child { border-bottom: none; }
+    .comparison-table tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+  
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 11px; }
+  }
+
+
+  /* Disclaimer */
+  .disclaimer {
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    padding: 20px 24px;
+    border-left: 3px solid var(--rule);
+    background: var(--paper-warm);
+    margin: 64px 0 0;
+    max-width: 760px;
+  }
+  /* ---- Portfolio-wide fixed navigation ---- */
+  .portfolio-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 48px;
+    z-index: 500;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+    margin: 0; padding: 0;
+  }
+  .nav-links a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(248,250,252,0.68);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--paper); }
+  .nav-links a.active {
+    color: var(--paper);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .nav-email {
+    color: rgba(250,248,245,0.45) !important;
+    font-size: 12px !important;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 20px !important;
+    margin-left: 4px;
+  }
+  .nav-email:hover { color: var(--paper) !important; }
+  @media (max-width: 768px) {
+    .portfolio-nav { padding: 0 20px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 11px; }
+  }
+
+  /* Timeline graphic wrapper */
+  .timeline-graphic {
+    margin: 32px 0 24px;
+    padding: 32px 24px;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+  }
+ 
+  .timeline-graphic svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+ 
+  .timeline-graphic-caption {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+    line-height: 1.5;
+    max-width: 760px;
+  }
+ 
+  .timeline-graphic-caption strong {
+    color: var(--ink);
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 6px;
+  }
+ 
+  footer {
+    margin-top: 120px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+ 
+  /* Phone frame for mobile screenshots */
+  .phone-frame {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    max-width: 260px;
+  }
+ 
+  .phone-frame .phone-shell {
+    position: relative;
+    background: #c8c2b4;
+    border-radius: 36px;
+    padding: 14px 10px;
+    box-shadow: 0 0 0 1.5px #b0a898, 0 8px 24px rgba(0,0,0,0.10);
+  }
+ 
+  .phone-frame .phone-notch {
+    width: 60px;
+    height: 8px;
+    background: #c8c2b4;
+    border-radius: 0 0 8px 8px;
+    margin: 0 auto 8px;
+    position: relative;
+    z-index: 2;
+  }
+ 
+  .phone-frame .phone-screen {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    cursor: zoom-in;
+  }
+ 
+  .phone-frame .phone-screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+    object-position: top;
+  }
+ 
+  .phone-frame .phone-screen .phone-fade {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.92));
+    pointer-events: none;
+  }
+ 
+  .phone-frame .phone-screen .expand-hint-phone {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 2;
+  }
+ 
+  .phone-frame .phone-home {
+    width: 36px;
+    height: 4px;
+    background: #a89e90;
+    border-radius: 2px;
+    margin: 8px auto 0;
+  }
+ 
+  .phone-frame figcaption {
+    margin-top: 12px;
+    padding-left: 10px;
+    border-left: 2px solid var(--accent);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    text-align: left;
+  }
+ 
+  .phone-frame figcaption strong {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="portfolio-nav" aria-label="Main navigation">
+  <ul class="nav-links">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="timeline-case-study.html" class="active">Application Timeline</a></li>
+    <li><a href="../DesignSystem-Milestone/milestone-component-case-study.html">Milestone Component</a></li>
+    <li><a href="../GFG-productInspector/product-inspector-case-study.html">Product Inspector</a></li>
+    <li><a href="mailto:colettefung@gmail.com" class="nav-email">colettefung@gmail.com</a></li>
+  </ul>
+</nav>
+
+<div class="container" style="margin-top: 60px;">
+
+  <div class="meta">
+    <span>Case Study</span>
+    <span>Citizen Service Design</span>
+  </div>
+
+  <h1>One timeline, <em>four teams</em>, two views</h1>
+
+  <p class="summary">
+    The Flat Application Timeline Page is where citizens land to see where their BTO application currently stands. <br/>The page is delivered as two separate views, each shown to citizens based on their current application stage: Cards 1 to 4, owned by my in-house team (Team A), and Cards 5 to 8, owned by an external agency partner (Team B). Team B had completed discovery research, an initial usability test on a subset of their active cards, and a first design refinement before being pulled to other priorities. <br />In the interim, the in-house design system was updated, which became an additional consideration when I took over. My role was to bring the design back into alignment: updating it to reflect the refreshed design system, validating the untested Cards 1 to 4 content, extending validation to the previously untested mobile view, and producing a layout pattern that Team B's design team agreed to adopt for their own cards once their development capacity resumes.
+  </p>
+
+
+  <!-- PROCESS TIMELINE -->
+  <div class="timeline-graphic" style="margin-bottom: 64px;">
+<svg width="100%" viewBox="0 0 680 540" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>Project process timeline and proposed production state</title>
+        <desc>A two-track horizontal timeline showing the external agency Team B's prior work and pause on the upper track, and the in-house Team A's four phases of work on the lower track. Below, a proposed production state frame shows the two timeline versions co-existing.</desc>
+
+        <defs>
+          <marker id="arr-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#B07435" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <text x="40" y="34" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#7C7268" font-weight="500">PROCESS TIMELINE</text>
+
+        <text x="40" y="84" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#7C7268" font-weight="500">TEAM B · EXTERNAL AGENCY</text>
+        <text x="40" y="98" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.5" fill="#7C7268">CARDS 5–8</text>
+        <line x1="40" y1="130" x2="280" y2="130" stroke="#7C7268" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+
+        <circle cx="100" cy="130" r="6" fill="#7C7268"/>
+        <text x="100" y="115" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="500" fill="#1E2D3D">Prior work</text>
+        <text x="100" y="158" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Discovery, UT on subset,</text>
+        <text x="100" y="172" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">first refined design</text>
+
+        <circle cx="220" cy="130" r="6" fill="#7C7268"/>
+        <text x="220" y="115" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="500" fill="#1E2D3D">Paused</text>
+        <text x="220" y="158" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Pulled to other priorities;</text>
+        <text x="220" y="172" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">design system updated</text>
+
+        <path d="M 240 140 Q 270 192 295 234" fill="none" stroke="#B07435" stroke-width="1.2" marker-end="url(#arr-orange)"/>
+        <text x="288" y="202" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.5" fill="#B07435" font-weight="500">HANDOVER</text>
+
+        <text x="40" y="262" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#B07435" font-weight="500">TEAM A · IN-HOUSE (ME)</text>
+        <text x="40" y="276" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.5" fill="#B07435" opacity="0.85">CARDS 1–4</text>
+        <line x1="40" y1="252" x2="640" y2="252" stroke="#B07435" stroke-width="1.5" opacity="0.85"/>
+
+        <circle cx="120" cy="252" r="7" fill="#B07435"/>
+        <text x="120" y="290" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="500" fill="#1E2D3D">Took over</text>
+        <text x="120" y="312" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Benchmarked, audited,</text>
+        <text x="120" y="326" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">engaged System Stewards</text>
+
+        <circle cx="280" cy="252" r="7" fill="#B07435"/>
+        <text x="280" y="290" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="500" fill="#1E2D3D">Drafted alternative</text>
+        <text x="280" y="312" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Collapsed step toggle for</text>
+        <text x="280" y="326" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">desktop and mobile</text>
+
+        <circle cx="440" cy="252" r="7" fill="#B07435"/>
+        <text x="440" y="290" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="500" fill="#1E2D3D">Tested and recommended</text>
+        <text x="440" y="312" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">A/B test, 10 participants;</text>
+        <text x="440" y="326" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">simpler design endorsed</text>
+
+        <circle cx="600" cy="252" r="7" fill="#B07435"/>
+        <text x="600" y="290" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="500" fill="#1E2D3D">Pattern shared</text>
+        <text x="600" y="312" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Team B agreed to adopt</text>
+        <text x="600" y="326" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">across both versions</text>
+
+        <line x1="40" y1="380" x2="640" y2="380" stroke="#E3DDD6" stroke-width="0.5"/>
+        <text x="40" y="406" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="2" fill="#7C7268" font-weight="500">PROPOSED PRODUCTION STATE</text>
+        <text x="40" y="422" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530" font-style="italic">Citizens will see one of two timeline versions, based on their current application stage</text>
+
+        <rect x="40" y="442" width="290" height="78" fill="#FBF4EC" stroke="#B07435" stroke-width="0.5" rx="4"/>
+        <text x="56" y="464" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.5" fill="#B07435" font-weight="500">VERSION A · IN-HOUSE</text>
+        <text x="56" y="490" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">Cards 1–4</text>
+        <text x="56" y="510" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Before flat booking</text>
+
+        <rect x="350" y="442" width="290" height="78" fill="#FAF8F5" stroke="#7C7268" stroke-width="0.5" rx="4"/>
+        <text x="366" y="464" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.5" fill="#7C7268" font-weight="500">VERSION B · EXTERNAL AGENCY</text>
+        <text x="366" y="490" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">Cards 5–8</text>
+        <text x="366" y="510" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">After flat booking</text>
+
+        <text x="340" y="490" text-anchor="middle" font-family="'Playfair Display', serif" font-size="20" font-weight="300" fill="#7C7268">+</text>
+      </svg>
+      <div class="timeline-graphic-caption"><strong>Process Timeline</strong>How the work moved from Team B's paused prior work, through the in-house phase I led, to the layout pattern accepted across both versions of the proposed production timeline page.</div>
+    
+  </div>
+
+  <!-- SECTION 01 -->
+  <section>
+    <div class="section-label">01 <span class="sep">▪</span> Role &amp; Stakeholders</div>
+    <h2>Aligning across teams without owning them</h2>
+
+    <p>The Flat Application Timeline Page sat across an organisational boundary I did not own. My in-house team held Cards 1 to 4; an external agency partner's team held Cards 5 to 8. Bringing the timeline back into alignment meant working with stakeholders who reported through different chains, on different priorities, with different delivery rhythms.</p>
+
+    <p class="stakeholder-complexity">Five stakeholder groups across three organisational boundaries: in-house, external agency, and the business unit that owns the live system.</p>
+
+    <div class="stakeholder-map">
+      <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>Stakeholder map across three organisational boundaries</title>
+        <desc>Three organisational clusters: Business Unit on the left with Director and System Stewards; In-house Team A in the centre with the Product Designer (me) as the connector node; External Agency Team B on the right with their designers and developers. Connecting lines show the approval relationship to the Business Unit and the aligning partner relationship to Team B.</desc>
+
+        <!-- Business Unit box -->
+        <rect x="20" y="60" width="180" height="160" rx="4" fill="#FAF8F5" stroke="#E3DDD6" stroke-width="1"/>
+        <text x="110" y="46" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.5" fill="#7C7268" font-weight="500">BUSINESS UNIT</text>
+        <text x="110" y="108" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">Director</text>
+        <text x="110" y="126" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#7C7268">Approver</text>
+        <line x1="60" y1="148" x2="160" y2="148" stroke="#E3DDD6" stroke-width="0.5" stroke-dasharray="3 2"/>
+        <text x="110" y="172" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">3 System Stewards</text>
+        <text x="110" y="190" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#7C7268">System gatekeepers</text>
+
+        <!-- Connecting line: Business Unit to Team A -->
+        <line x1="200" y1="140" x2="250" y2="140" stroke="#B07435" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+        <text x="225" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" fill="#B07435" opacity="0.8">APPROVAL</text>
+
+        <!-- Team A box (centre, accent) -->
+        <rect x="250" y="30" width="180" height="220" rx="4" fill="#FBF4EC" stroke="#B07435" stroke-width="1.5"/>
+        <text x="340" y="16" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.5" fill="#B07435" font-weight="500">TEAM A · IN-HOUSE</text>
+        <text x="340" y="88" text-anchor="middle" font-family="'Playfair Display', serif" font-size="16" font-weight="500" fill="#B07435">Product Designer</text>
+        <text x="340" y="107" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1" fill="#B07435">(me)</text>
+        <text x="340" y="126" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#3B3530">Owner · Driver</text>
+        <line x1="290" y1="148" x2="390" y2="148" stroke="#B07435" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.5"/>
+        <text x="340" y="176" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">Developers</text>
+        <text x="340" y="194" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#7C7268">Delivery · Cards 1–4</text>
+
+        <!-- Connecting line: Team A to Team B -->
+        <line x1="430" y1="140" x2="480" y2="140" stroke="#B07435" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+        <text x="455" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" fill="#B07435" opacity="0.8">ALIGNMENT</text>
+
+        <!-- Team B box -->
+        <rect x="480" y="60" width="180" height="160" rx="4" fill="#FAF8F5" stroke="#E3DDD6" stroke-width="1"/>
+        <text x="570" y="46" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.5" fill="#7C7268" font-weight="500">TEAM B · EXTERNAL</text>
+        <text x="570" y="108" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">Designers</text>
+        <text x="570" y="126" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#7C7268">Aligning partner</text>
+        <line x1="520" y1="148" x2="620" y2="148" stroke="#E3DDD6" stroke-width="0.5" stroke-dasharray="3 2"/>
+        <text x="570" y="172" text-anchor="middle" font-family="'Playfair Display', serif" font-size="15" font-weight="500" fill="#1E2D3D">Developers</text>
+        <text x="570" y="190" text-anchor="middle" font-family="'Source Sans 3', sans-serif" font-size="11" fill="#7C7268">Delivery · Cards 5–8</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SECTION 02 -->
+  <section>
+    <div class="section-label">02 <span class="sep">▪</span> Approach &amp; Iterations</div>
+    <h2>Establish the foundation before exercising design judgment</h2>
+
+    <p>The work I inherited had been paused mid-stream. The first judgment call was deciding what to trust: what was sound to carry forward, what had shifted underneath, and what had never been asked at all.</p>
+
+    <!-- PHASE 01 -->
+    <div class="phase">
+      <div class="phase-label">Phase 01 <span class="sep">▪</span> Establish the foundation</div>
+      <div class="phase-title">Five moves before drafting anything</div>
+
+      <div class="approach-step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">Benchmarked timeline patterns externally</div>
+          <div class="step-body">
+            Researched how other governments and Singapore agencies present timeline steppers in citizen-facing applications. The benchmarking surfaced a recurring pattern across the examples reviewed: <em>content-rich timelines were typically collapsed into a simplified view</em>, rather than displayed in full. This diverged from Team B's approach, which kept all step details visible, auto-scrolled on page load, and provided a step jumper to navigate to the current active step. The step jumper appeared as a sticky element on the side of the page, showing all steps as a compact list; on mobile, it translated to a sticky dropdown. Tapping any step would scroll the page to that step's card. The divergence between this approach and the industry pattern became the basis for proposing an alternative direction worth testing.
+          </div>
+        </div>
+      </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="CAgov-timeline.png" data-alt="Benchmark · Canada Government" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
+              <img src="CAgov-timeline.png" alt="Benchmark · Canada Government" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · Canada Government</strong>Step descriptions are short and precise. Longer instructions are collapsed and only revealed when the citizen expands a step.</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="MHAtimeline.png" data-alt="Benchmark · MHA Singapore" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
+              <img src="MHAtimeline.png" alt="Benchmark · MHA Singapore" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · MHA Singapore</strong>Step titles surface at a glance. Detail is hidden by default and expandable on demand, consistent with the pattern found across the examples reviewed.</figcaption>
+          </figure>
+        </div>
+
+      <div class="approach-step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">Inherited Team B's prior work, and identified the gaps in it</div>
+          <div class="step-body">
+            Reviewed Team B's UT findings, their last refined design proposal, and the <em>scope</em> of their usability testing. The goal was to carry forward what had been validated, not to redo what had already been thought through, but also to identify what had been left untested. One gap surfaced clearly: Team B had only validated the desktop view; the mobile version of the timeline had never been tested. That gap shaped the validation scope I would later own.
+          </div>
+        </div>
+      </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="TeamBProposedTimeline_desktop.png" data-alt="Team B · Last Design · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
+              <img src="TeamBProposedTimeline_desktop.png" alt="Team B · Last Design · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Team B · Last Design · Desktop</strong>All step details visible on load, with a sticky step jumper on the right for milestone navigation.</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <img src="TeamBProposedTimeline_stepjumper-zoomin.png" alt="Team B · Step Jumper · Detail" style="display:block;width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:12px;">
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Team B · Step Jumper · Detail</strong>The sticky step jumper listing completed and pending milestones, the interaction pattern later tested against the collapsed toggle.</figcaption>
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen thumb-wrap" data-full="TeamBProposedTimeline_mobile.png" data-alt="Team B · Last Design · Mobile">
+                <img src="TeamBProposedTimeline_mobile.png" alt="Team B · Last Design · Mobile">
+                <div class="phone-fade"></div>
+                <span class="expand-hint-phone">&#x2922; Expand</span>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+            <figcaption><strong>Team B · Last Design · Mobile</strong>Mobile version of Team B's last design, untested at point of handover.</figcaption>
+          </figure>
+        </div>
+      <div class="approach-step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">Audited the design system and current production state</div>
+          <div class="step-body">
+            Mapped what had changed in the in-house design system since Team B's last design refinement, so that the new design would land on current standards. Then reviewed the existing UI on production, which at the time only surfaced Cards 1 to 4 to citizens. This grounded the work in what citizens were actually seeing today, not the proposed future state.
+          </div>
+        </div>
+      </div>
+
+      <div class="approach-step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">Engaged the System Stewards</div>
+          <div class="step-body">
+            Worked with the system administrators who run the live system day-to-day to understand the critical business processes behind Cards 1 to 4.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 02 -->
+
+
+      <div class="approach-step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-title">Drafted an alternative direction grounded in the benchmarking</div>
+          <div class="step-body">
+            Designed a <em>collapsed completed step toggle</em> as a deliberate alternative to Team B's step jumper. Three principles shaped the alternative:
+            <ul>
+              <li><strong>No auto-scroll.</strong> Citizens should not see unexpected page movement without their explicit intent to scroll.</li>
+              <li><strong>Completed steps as less critical content.</strong> Past steps were collapsed by default, surfaced only when citizens chose to reveal them via a <em>Show completed steps</em> toggle.</li>
+              <li><strong>Active step as the entry point.</strong> With completed steps collapsed, the active step card was always the first card a citizen saw on page load, without any auto-scrolling to reach it.</li>
+            </ul>
+            The design was produced for both desktop and mobile from the start, since extending validation to mobile was one of the gaps identified in Step 02.
+          </div>
+        </div>
+      </div>
+      <div style="margin: 32px 0 8px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Alternative approach to the Initial Suggestion by Team B</div>
+      </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="TeamA-collapsedCompleted-desktop-default.png" data-alt="Alternative Design · Desktop · Default" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
+              <img src="TeamA-collapsedCompleted-desktop-default.png" alt="Alternative Design · Desktop · Default" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Alternative Design · Desktop · Default</strong>Completed steps collapsed. Active step anchors the top of the timeline.</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="TeamA-collapsedCompleted-desktop-expanded.png" data-alt="Alternative Design · Desktop · Expanded" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
+              <img src="TeamA-collapsedCompleted-desktop-expanded.png" alt="Alternative Design · Desktop · Expanded" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Alternative Design · Desktop · Expanded</strong>Completed steps revealed after toggling Show completed steps.</figcaption>
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen thumb-wrap" data-full="TeamA-collapsedCompleted-mobile.png" data-alt="Alternative Design · Mobile">
+                <img src="TeamA-collapsedCompleted-mobile.png" alt="Alternative Design · Mobile">
+                <div class="phone-fade"></div>
+                <span class="expand-hint-phone">&#x2922; Expand</span>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+            <figcaption><strong>Alternative Design · Mobile</strong>Collapsed state on mobile. Toggle sits above the active card.</figcaption>
+          </figure>
+        </div>
+      <div class="approach-step">
+        <div class="step-num">06</div>
+        <div>
+          <div class="step-title">Aligned the test scope with Team B before running it</div>
+          <div class="step-body">
+            Shared the test scope and both prototypes with Team B's design team before conducting the usability test. The intent was twofold: to ensure their design was being represented accurately in the prototype I had built, and to remove any political risk of A/B-testing a peer team's design without their visibility. Coordinating across teams with separate reporting lines and misaligned development timelines meant that alignment had to be built into the process from the start, not negotiated at the end.
+          </div>
+        </div>
+      </div>
+
+      <div class="approach-step">
+        <div class="step-num">07</div>
+        <div>
+          <div class="step-title">Designed and ran the A/B usability test</div>
+          <div class="step-body">
+            Agreed the test scope and scenarios with the System Stewards, then designed the prototypes, scenarios and scripts on my own. My UX teammate served as note-taker; I moderated. A round of <strong>10 participants</strong>, split evenly between the two prototypes (5 per group), tested across both desktop and mobile.
+          </div>
+        </div>
+      </div>
+
+      <!-- PIVOT CALLOUT -->
+      <div class="pivot-callout">
+        <div class="pivot-label">The Finding That Decided The Recommendation</div>
+        <h3>The test surfaced a stronger argument than expected</h3>
+        <p>The test surfaced no significant difference between the two prototypes on confidence or time. What it did surface was unexpected: <strong>none of the participants who saw Team B's prototype interacted with the step jumper at all.</strong> When asked what they thought the step jumper was for, they described it as an overview of all steps, not as a navigation control.</p>
+        <p>On Team A's prototype, participants did not need to expand the <strong>Show completed steps</strong> toggle to understand where they were in the process. When asked what the toggle would do, they clicked it once and immediately understood its function.</p>
+      </div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="TeamA-prototypeA.png" data-alt="Prototype A · Collapsed Toggle · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
+              <img src="TeamA-prototypeA.png" alt="Prototype A · Collapsed Toggle · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Prototype A · Collapsed Toggle · Desktop</strong>The alternative design: completed steps hidden by default, active step anchored at top, no auto-scroll.</figcaption>
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen thumb-wrap" data-full="TeamA-prototypeA_mobile.png" data-alt="Prototype A · Collapsed Toggle · Mobile">
+                <img src="TeamA-prototypeA_mobile.png" alt="Prototype A · Collapsed Toggle · Mobile">
+                <div class="phone-fade"></div>
+                <span class="expand-hint-phone">&#x2922; Expand</span>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+            <figcaption><strong>Prototype A · Collapsed Toggle · Mobile</strong>Show completed steps button above the active card; side panel stacks below.</figcaption>
+          </figure>
+        </div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
+          <figure style="margin:0;">
+            <div class="thumb-wrap" data-full="TeamB-prototypeB.png" data-alt="Prototype B · Step Jumper · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
+              <img src="TeamB-prototypeB.png" alt="Prototype B · Step Jumper · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+              <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+            </div>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Prototype B · Step Jumper · Desktop</strong>Team B's design, re-prototyped with the refreshed design system applied. Auto-scrolls to the active step; sticky step jumper on the right.</figcaption>
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen thumb-wrap" data-full="TeamB-prototypeB-mobile.png" data-alt="Prototype B · Step Jumper · Mobile">
+                <img src="TeamB-prototypeB-mobile.png" alt="Prototype B · Step Jumper · Mobile">
+                <div class="phone-fade"></div>
+                <span class="expand-hint-phone">&#x2922; Expand</span>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+            <figcaption><strong>Prototype B · Step Jumper · Mobile</strong>Step jumper translates to a sticky dropdown on mobile.</figcaption>
+          </figure>
+        </div>
+              <div class="approach-step">
+        <div class="step-num">08</div>
+        <div>
+          <div class="step-title">Recommended the simpler design on development-cost grounds</div>
+          <div class="step-body">
+            The recommendation to my approver and the System Stewards rested not on what the test showed users preferred, but on <em>what the test showed users didn't need</em>. With no measurable advantage from the step jumper, no observed use of it, and the fact that the step jumper was a new component not in the design system, requiring dedicated development effort to build. The simpler collapsed toggle, already aligned to existing components, was the lower-risk, lower-cost path. The recommendation was not to build a better step jumper. It was to remove the step jumper entirely. The Director and System Stewards endorsed the recommendation.
+          </div>
+        </div>
+      </div>
+
+      <div class="approach-step">
+        <div class="step-num">09</div>
+        <div>
+          <div class="step-title">Handed over to Team B for alignment</div>
+          <div class="step-body">
+            Shared the final design with Team B's design team. Because they had been kept visible to the test scope and prototypes from the outset, the share-out was a clean acceptance rather than a negotiation. That outcome was not incidental. It was the result of keeping Team B visible throughout, rather than presenting a finished recommendation for them to react to. Team B's design team agreed to adopt the layout pattern for their Cards 5 to 8 once their development capacity resumes.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03 -->
+  <section>
+    <div class="section-label">03 <span class="sep">▪</span> Design Decisions</div>
+    <h2>Translation, not reinvention</h2>
+
+    <p>With the collapsed completed step toggle established as the foundational pattern, the remaining design decisions were ones of translation rather than reinvention: how the pattern carried into mobile, how it aligned with Team B's parallel ownership of Cards 5 to 8, and how the content within Cards 1 to 4 should be re-surfaced to match the simplified primary view.</p>
+
+    <div class="decision-block">
+      <h3 data-marker="Decision 01">Mobile translation followed naturally from the chosen pattern</h3>
+      <p>The collapsed toggle approach carried into mobile without structural change. The <strong>Show completed steps</strong> button remained above the main timeline, visible at the top of the page on load. The side widgets, carrying secondary information, stacked below the timeline, in line with their secondary role. No separate mobile interaction model was needed. That cleanliness validated the pattern choice.</p>
+    </div>
+
+    <div class="decision-block">
+      <h3 data-marker="Decision 02">Aligned with Team B on a shared layout pattern, not shared content</h3>
+      <p>Worked with Team B's design team to settle on a <strong>shared layout pattern</strong> for the page, while leaving the side panel content stage-specific to their scope. Team B's side panel surfaces information relevant to citizens at Cards 5 to 8, by which point a flat has been booked and the relevant context shifts from comparing applications to deepening understanding of the booked flat. Shared layout, divergent content. That split let two teams deliver one coherent citizen experience.</p>
+    </div>
+
+    <div class="decision-block">
+      <h3 data-marker="Decision 03">Re-surfaced stage-conditional content from primary to secondary</h3>
+      <p>The original Cards 1 to 4 carried three notes about HDB Flat Eligibility (HFE) letter validity. Each note was true at a different stage, but together they read as contradictory at first glance. Citizens had to mentally figure out which rule applied to them. The card was making the citizen do work the system should have done.</p>
+
+      <p>A combined move addressed it:</p>
+
+      <ul>
+        <li><strong>Consolidated</strong> the three notes into a single coherent reference covering HFE letter renewal conditions.</li>
+        <li><strong>Re-surfaced</strong> the consolidated reference into the side panel, behind an accordion that citizens open only if they want to read more.</li>
+        <li><strong>Protected the primary card content</strong> to carry only what was stage-relevant: balloting results on Card 2, flat booking appointment time and venue on Card 3, and so on.</li>
+      </ul>
+        <figure class="figure-full" style="margin: 24px 0 32px;">
+          <img src="final-design-HFE-sidepanel-expandcollapsed.png" alt="HFE Side Panel · Collapsed and Expanded" style="display:block;width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:16px;">
+          <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:13px;color:var(--ink-soft);margin-top:12px;padding-left:12px;border-left:2px solid var(--accent);line-height:1.5;max-width:760px;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">HFE Side Panel · Collapsed and Expanded</strong>Consolidated HFE renewal reference re-surfaced to the side panel. Citizens expand the accordion only when needed.</figcaption>
+        </figure>
+    </div>
+
+    <!-- FINAL DESIGN IMAGES -->
+    <div style="margin: 48px 0 0;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Final endorsed design</div>
+    </div>
+        <figure class="figure-full thumb" style="margin:24px 0 32px;">
+          <div class="thumb-wrap" data-full="final-design-desktop.png" data-alt="Final Design · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:16px;overflow:hidden;max-height:360px;transition:border-color 0.2s ease;">
+            <img src="final-design-desktop.png" alt="Final Design · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
+            <div style="content:'';position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
+            <span class="expand-hint" style="position:absolute;bottom:12px;right:12px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:6px 10px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Click to expand</span>
+          </div>
+          <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:13px;color:var(--ink-soft);margin-top:12px;padding-left:12px;border-left:2px solid var(--accent);line-height:1.5;max-width:760px;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Final Design · Desktop</strong>Completed steps collapsed, active step anchored at top, HFE content in the side panel accordion.</figcaption>
+        </figure>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
+          <figure class="phone-frame">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen thumb-wrap" data-full="final-design_mobile-default.png" data-alt="Final Design · Mobile · Default">
+                <img src="final-design_mobile-default.png" alt="Final Design · Mobile · Default">
+                <div class="phone-fade"></div>
+                <span class="expand-hint-phone">&#x2922; Expand</span>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+            <figcaption><strong>Final Design · Mobile · Default</strong>Active step on load, completed steps hidden, toggle above the timeline.</figcaption>
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen thumb-wrap" data-full="final-design-mobile-expanded.png" data-alt="Final Design · Mobile · Expanded">
+                <img src="final-design-mobile-expanded.png" alt="Final Design · Mobile · Expanded">
+                <div class="phone-fade"></div>
+                <span class="expand-hint-phone">&#x2922; Expand</span>
+              </div>
+              <div class="phone-home"></div>
+            </div>
+            <figcaption><strong>Final Design · Mobile · Expanded</strong>Completed steps revealed after tapping Show completed steps.</figcaption>
+          </figure>
+        </div>
+
+  </section>
+
+  <p class="disclaimer">At time of writing, this design has been endorsed but not yet released to production. The final implementation may differ.</p>
+
+  <footer>
+    <span>Flat Application Timeline · Case Study</span>
+    <span>Colette Fung</span>
+  </footer>
+</div>
+<!-- Lightbox overlay -->
+<div id="lightbox" role="dialog" aria-hidden="true" aria-label="Expanded image view" style="position:fixed;inset:0;background:rgba(30,45,61,0.96);z-index:1000;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out;">
+  <button id="lightbox-close" aria-label="Close expanded image" style="position:fixed;top:24px;right:24px;background:var(--paper);border:none;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:10px 16px;cursor:pointer;z-index:1001;transition:background 0.2s ease,color 0.2s ease;">Close ✕</button>
+  <div style="position:relative;max-width:100%;max-height:100%;overflow:auto;cursor:default;">
+    <img id="lightbox-img" src="" alt="" style="display:block;max-width:100%;height:auto;background:#fff;padding:24px;">
+  </div>
+</div>
+<script>
+  (function() {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    var closeBtn = document.getElementById('lightbox-close');
+
+    function open(src, alt) {
+      lbImg.src = src; lbImg.alt = alt || '';
+      lb.style.display = 'flex'; lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.style.display = 'none'; lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(function(){ lbImg.src = ''; }, 200);
+    }
+
+    document.querySelectorAll('.thumb-wrap').forEach(function(t) {
+      t.addEventListener('click', function() { open(t.getAttribute('data-full'), t.getAttribute('data-alt')); });
+      t.setAttribute('tabindex', '0'); t.setAttribute('role', 'button');
+      t.addEventListener('keydown', function(e) { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); t.click(); } });
+    });
+
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function(e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function(e) { if (e.key==='Escape' && lb.style.display==='flex') close(); });
+  })();
+</script>
+
+</body>
+</html>
