@@ -145,8 +145,8 @@ main {
 .hero {
   display: flex;
   align-items: center;
-  gap: 72px;
-  padding: 96px 0 72px;
+  
+  padding: 48px 0 48px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -209,7 +209,7 @@ main {
 }
 
 /* --- 5c. Sections --- */
-.section { padding: 72px 0 0; }
+.section { padding: 36px 0 0; }
 .section + .section { border-top: 1px solid var(--border); }
 
 .section-label {
