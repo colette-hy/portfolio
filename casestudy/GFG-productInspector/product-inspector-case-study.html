@@ -288,6 +288,8 @@
 <!-- Lightbox overlay -->
 <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Expanded image view">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close expanded image">Close ✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#8592; Prev</button>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">Next &#8594;</button>
   <div class="lightbox-inner">
     <img id="lightbox-img" src="" alt="">
   </div>
@@ -295,14 +297,31 @@
 
 <script>
   (function() {
-    const lightbox = document.getElementById('lightbox');
+    const lightbox    = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const thumbs = document.querySelectorAll('.thumb-wrap');
+    const closeBtn    = document.getElementById('lightbox-close');
+    const prevBtn     = document.getElementById('lightbox-prev');
+    const nextBtn     = document.getElementById('lightbox-next');
 
-    function openLightbox(src, alt) {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || '';
+    let slides = [];       // [{src, alt}, ...]  active group
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const s = slides[index];
+      lightboxImg.src = s.src;
+      lightboxImg.alt = s.alt || '';
+      currentSlide = index;
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
+      const multi = slides.length > 1;
+      prevBtn.style.display = multi ? '' : 'none';
+      nextBtn.style.display = multi ? '' : 'none';
+    }
+
+    function openLightbox(src, alt, group) {
+      slides = group && group.length ? group : [{ src, alt }];
+      const idx = slides.findIndex(s => s.src === src);
+      showSlide(idx === -1 ? 0 : idx);
       lightbox.classList.add('active');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.classList.add('lightbox-open');
@@ -312,51 +331,74 @@
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('lightbox-open');
-      setTimeout(() => { lightboxImg.src = ''; }, 200);
+      setTimeout(() => { lightboxImg.src = ''; slides = []; }, 200);
     }
 
-    thumbs.forEach(thumb => {
+    // ── thumb-wrap images (single, no group nav) ──────────────────
+    document.querySelectorAll('.thumb-wrap').forEach(thumb => {
       thumb.addEventListener('click', () => {
-        const full = thumb.getAttribute('data-full');
-        const alt = thumb.getAttribute('data-alt');
-        openLightbox(full, alt);
+        openLightbox(
+          thumb.getAttribute('data-full'),
+          thumb.getAttribute('data-alt')
+        );
       });
       thumb.setAttribute('tabindex', '0');
       thumb.setAttribute('role', 'button');
       thumb.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          thumb.click();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); thumb.click(); }
       });
     });
 
-    closeBtn.addEventListener('click', closeLightbox);
-
-    lightbox.addEventListener('click', e => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        closeLightbox();
-      }
-    });
-    // Tab carousels
+    // ── tab carousel: wire tabs + make images open lightbox ───────
     document.querySelectorAll('.tab-carousel').forEach(carousel => {
-      const tabs = carousel.querySelectorAll('.tab-carousel__tab');
+      const tabs   = carousel.querySelectorAll('.tab-carousel__tab');
       const panels = carousel.querySelectorAll('.tab-carousel__panel');
 
+      // Build slide group from every panel image in this carousel
+      const group = Array.from(panels).map(p => {
+        const img = p.querySelector('figure img');
+        return img ? { src: img.src, alt: img.alt } : null;
+      }).filter(Boolean);
+
+      // Tab switching
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          const index = parseInt(tab.getAttribute('data-index'));
+          const idx = parseInt(tab.getAttribute('data-index'), 10);
           tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
           panels.forEach(p => p.classList.remove('is-active'));
           tab.classList.add('is-active');
           tab.setAttribute('aria-selected', 'true');
-          panels[index].classList.add('is-active');
+          panels[idx].classList.add('is-active');
         });
       });
+
+      // Click image → open lightbox at that slide, with group nav
+      panels.forEach(panel => {
+        const img = panel.querySelector('figure img');
+        if (!img) return;
+        img.addEventListener('click', () => openLightbox(img.src, img.alt, group));
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); img.click(); }
+        });
+      });
+    });
+
+    // ── lightbox controls ─────────────────────────────────────────
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) showSlide(currentSlide - 1);
+    });
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) showSlide(currentSlide + 1);
+    });
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft'  && currentSlide > 0)                   showSlide(currentSlide - 1);
+      if (e.key === 'ArrowRight' && currentSlide < slides.length - 1)   showSlide(currentSlide + 1);
     });
 
   })();
