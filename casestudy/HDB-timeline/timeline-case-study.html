@@ -32,7 +32,7 @@
   <h1>One timeline, <em>four teams</em>, two views</h1>
 
   <p class="summary">
-    The Flat Application Timeline Page is where citizens land to see where their BTO application currently stands. <br/>The page is delivered as two separate views, each shown to citizens based on their current application stage: Cards 1 to 4, owned by my in-house team (Team A), and Cards 5 to 8, owned by an external agency partner (Team B). Team B had completed discovery research, an initial usability test on a subset of their active cards, and a first design refinement before being pulled to other priorities. <br />In the interim, the in-house design system was updated, which became an additional consideration when I took over. My role was to bring the design back into alignment: updating it to reflect the refreshed design system, validating the untested Cards 1 to 4 content, extending validation to the previously untested mobile view, and producing a layout pattern that Team B's design team agreed to adopt for their own cards once their development capacity resumes.
+    The Flat Application Timeline Page is where citizens land to see where their BTO application currently stands. <br/>The page is delivered as two separate views, each shown to citizens based on their current application stage: <br/>i) Cards 1 to 4, owned by my in-house team (Team A), and <br />ii) Cards 5 to 8, owned by an external agency partner (Team B). Team B had completed discovery research, an initial usability test on a subset of their active cards, and a first design refinement before being pulled to other priorities. <br />In the interim, the in-house design system was updated, which became an additional consideration when I took over. <br />My role was to bring the design back into alignment: updating it to reflect the refreshed design system, validating the untested Cards 1 to 4 content, extending validation to the previously untested mobile view, and producing a layout pattern that Team B's design team agreed to adopt for their own cards once their development capacity resumes.
   </p>
 
 
@@ -118,7 +118,6 @@
 
     <p>The Flat Application Timeline Page sat across an organisational boundary I did not own. My in-house team held Cards 1 to 4; an external agency partner's team held Cards 5 to 8. Bringing the timeline back into alignment meant working with stakeholders who reported through different chains, on different priorities, with different delivery rhythms.</p>
 
-    <p class="stakeholder-complexity">Five stakeholder groups across three organisational boundaries: in-house, external agency, and the business unit that owns the live system.</p>
 
     <div class="stakeholder-map">
       <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -169,12 +168,12 @@
     <div class="section-label">02 <span class="sep">▪</span> Approach &amp; Iterations</div>
     <h2>Establish the foundation before exercising design judgment</h2>
 
-    <p>The work I inherited had been paused mid-stream. The first judgment call was deciding what to trust: what was sound to carry forward, what had shifted underneath, and what had never been asked at all.</p>
+    <p>The work I inherited had been paused mid-stream. The first judgment call was deciding what to trust and what was sound to carry forward.</p>
 
     <!-- PHASE 01 -->
     <div class="phase">
       <div class="phase-label">Phase 01 <span class="sep">▪</span> Establish the foundation</div>
-      <div class="phase-title">Five moves before drafting anything</div>
+      <div class="phase-title">Synthesising industry practice, compliance standards and business requirements </div>
 
       <div class="approach-step">
         <div class="step-num">01</div>
@@ -183,11 +182,9 @@
           <div class="step-body">
             Researched how other governments and Singapore agencies present timeline steppers in citizen-facing applications. The benchmarking surfaced a recurring pattern across the examples reviewed: <em>content-rich timelines were typically collapsed into a simplified view</em>, rather than displayed in full. This diverged from Team B's approach, which kept all step details visible, auto-scrolled on page load, and provided a step jumper to navigate to the current active step. The step jumper appeared as a sticky element on the side of the page, showing all steps as a compact list; on mobile, it translated to a sticky dropdown. Tapping any step would scroll the page to that step's card. The divergence between this approach and the industry pattern became the basis for proposing an alternative direction worth testing.
           </div>
-        </div>
-      </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
-          <figure style="margin:0;">
+           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="CAgov-timeline.png" data-alt="Benchmark · Canada Government" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
               <img src="CAgov-timeline.png" alt="Benchmark · Canada Government" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
@@ -202,8 +199,12 @@
               <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
             <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · MHA Singapore</strong>Step titles surface at a glance. Detail is hidden by default and expandable on demand, consistent with the pattern found across the examples reviewed.</figcaption>
-          </figure>
+          </figure></div>
         </div>
+      </div>
+
+         
+  
 
       <div class="approach-step">
         <div class="step-num">02</div>
@@ -212,8 +213,6 @@
           <div class="step-body">
             Reviewed Team B's UT findings, their last refined design proposal, and the <em>scope</em> of their usability testing. The goal was to carry forward what had been validated, not to redo what had already been thought through, but also to identify what had been left untested. One gap surfaced clearly: Team B had only validated the desktop view; the mobile version of the timeline had never been tested. That gap shaped the validation scope I would later own.
           </div>
-        </div>
-      </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="TeamBProposedTimeline_desktop.png" data-alt="Team B · Last Design · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
@@ -240,6 +239,12 @@
             <figcaption><strong>Team B · Last Design · Mobile</strong>Mobile version of Team B's last design, untested at point of handover.</figcaption>
           </figure>
         </div>
+      
+        </div>
+
+      </div>
+        
+
       <div class="approach-step">
         <div class="step-num">03</div>
         <div>
@@ -278,10 +283,8 @@
             </ul>
             The design was produced for both desktop and mobile from the start, since extending validation to mobile was one of the gaps identified in Step 02.
           </div>
-        </div>
-      </div>
-      <div style="margin: 32px 0 8px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Alternative approach to the Initial Suggestion by Team B</div>
+        <div style="margin: 32px 0 8px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Alternative approach to the Initial Suggestion</div>
       </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
           <figure style="margin:0;">
@@ -313,6 +316,11 @@
             <figcaption><strong>Alternative Design · Mobile</strong>Collapsed state on mobile. Toggle sits above the active card.</figcaption>
           </figure>
         </div>
+
+
+        </div>
+      </div>
+      
       <div class="approach-step">
         <div class="step-num">06</div>
         <div>
