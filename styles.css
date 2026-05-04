@@ -1032,7 +1032,77 @@ footer {
 
 
 /* ============================================================
-   7. HDB TIMELINE — page-specific additions
+   7. TAB CAROUSEL — shared component (Product Inspector)
+   ============================================================ */
+
+.tab-carousel { margin-top: 28px; }
+
+.tab-carousel__tabs {
+  display: flex;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tab-carousel__tab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 20px;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab-carousel__tab:hover { color: var(--ink); }
+
+.tab-carousel__tab.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* Hide inactive panels */
+.tab-carousel__panel { display: none; }
+.tab-carousel__panel.is-active { display: block; }
+
+.tab-carousel__panel figure img {
+  cursor: zoom-in;
+  transition: opacity 0.15s;
+}
+.tab-carousel__panel figure img:hover { opacity: 0.92; }
+
+/* Prev / Next arrows inside lightbox */
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--paper);
+  border: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 14px;
+  cursor: pointer;
+  z-index: 1002;
+  transition: background 0.2s, color 0.2s;
+  display: none;
+}
+.lightbox-nav:hover { background: var(--accent); color: var(--paper); }
+.lightbox-nav.lightbox-prev { left: 24px; }
+.lightbox-nav.lightbox-next { right: 24px; }
+.lightbox.active .lightbox-nav { display: block; }
+.lightbox-nav:disabled { opacity: 0.3; cursor: default; }
+.lightbox-nav:disabled:hover { background: var(--paper); color: var(--ink); }
+
+
+/* ============================================================
+   8. HDB TIMELINE — page-specific additions
    ============================================================ */
 
 /* --- 7a. Timeline graphic --- */
