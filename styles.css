@@ -116,10 +116,93 @@ body {
 
 .nav-email:hover { color: var(--paper) !important; }
 
+/* Hamburger toggle (hidden on desktop, shown on mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+  padding: 10px;
+  margin-right: -10px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(248,250,252,0.78);
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle-bar + .nav-toggle-bar { margin-top: 5px; }
+
+.portfolio-nav.is-open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.portfolio-nav.is-open .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.portfolio-nav.is-open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-  .portfolio-nav { padding: 0 20px; }
-  .nav-links { gap: 14px; }
-  .nav-links a { font-size: 11px; }
+  .portfolio-nav { padding: 0 20px; justify-content: flex-end; }
+
+  .nav-toggle { display: inline-flex; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--ink);
+    padding: 4px 20px 12px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+
+  .portfolio-nav.is-open .nav-links { display: flex; }
+
+  .nav-links li { width: 100%; }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-links li:last-child a { border-bottom: none; }
+
+  .nav-links a.active {
+    color: var(--paper);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 14px;
+    padding-left: 10px;
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+
+  .nav-email {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-left: 0;
+    font-size: 13px !important;
+  }
 }
 
 

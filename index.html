@@ -15,7 +15,12 @@
 
   <!-- Fixed navigation -->
   <nav class="portfolio-nav" aria-label="Main navigation">
-    <ul class="nav-links">
+    <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="casestudy/HDB-timeline/timeline-case-study.html">Application Timeline</a></li>
       <li><a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html">Milestone Component</a></li>
@@ -93,6 +98,7 @@
           <div class="cs-tags">
             <span class="cs-tag">E-commerce</span>
             <span class="cs-tag">Enterprise platforms</span>
+            <span class="cs-tag">Retail pricing</span>
           </div>
           <div class="cs-card-arrow">Read case study &rarr;</div>
         </a>
@@ -199,5 +205,23 @@
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var nav = document.querySelector('.portfolio-nav');
+      var btn = nav && nav.querySelector('.nav-toggle');
+      if (!nav || !btn) return;
+      btn.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.focus();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
