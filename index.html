@@ -195,6 +195,99 @@
       margin-bottom: 32px;
     }
 
+    /* ---- Case study cards ---- */
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 8px;
+    }
+    .cs-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 24px 24px;
+      background: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cs-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 4px 20px rgba(176,116,53,0.10);
+    }
+    .cs-card-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .cs-card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .cs-card-desc {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      color: var(--gray-dark);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .cs-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .cs-tag {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      color: #8B5A28;
+      background: var(--blue-faint);
+      border: 1px solid var(--blue-light);
+      border-radius: 2px;
+      padding: 3px 8px;
+      white-space: nowrap;
+    }
+    .cs-card-thumb {
+      width: calc(100% + 48px);
+      margin: -28px -24px 22px;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 4px 4px 0 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--blue-faint);
+    }
+    .cs-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.04);
+      transform-origin: center top;
+      transition: transform 0.4s ease;
+    }
+    .cs-card:hover .cs-card-thumb img { transform: scale(1.08); }
+    .cs-card-arrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-top: 20px;
+      transition: letter-spacing 0.2s;
+    }
+    .cs-card:hover .cs-card-arrow { letter-spacing: 0.18em; }
+    @media (max-width: 820px) {
+      .cs-grid { grid-template-columns: 1fr; gap: 16px; }
+      .cs-card-thumb { height: 160px; }
+    }
+
     /* ---- About prose ---- */
     .about-prose p {
       font-size: 17px;
@@ -372,9 +465,8 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
-        <p class="hero-eyebrow">Senior UX Designer · Singapore</p>
         <h1>Colette Fung</h1>
-        <p class="hero-subtitle">Over a decade in digital and UX design, grounded in Psychology and Information Systems</p>
+        <p class="hero-subtitle">Grounded in psychology and information systems, I lead design from problem to delivery, aligning stakeholders and driving measurable impact.</p>
       </div>
       <img src="portrait.jpg" alt="Colette Fung" class="portrait-img">
     </section>
@@ -391,10 +483,62 @@
       </div>
     </section>
 
+    <!-- CASE STUDIES -->
+    <section class="section" id="work">
+      <p class="section-label">Case Studies</p>
+      <div class="cs-grid">
+
+        <a href="casestudy/HDB-timeline/timeline-case-study.html" class="cs-card">
+          <div class="cs-card-thumb">
+            <img src="casestudy/HDB-timeline/final-design-desktop.png" alt="Application Timeline final design" style="object-position: center 18%;">
+          </div>
+          <div class="cs-card-eyebrow">Case Study &middot; Public Sector</div>
+          <div class="cs-card-title">Application Timeline</div>
+          <p class="cs-card-desc">Bridging two teams with split ownership of a citizen-facing page, extending validation to mobile, and producing a cross-team endorsed layout pattern.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Citizen service</span>
+            <span class="cs-tag">Stakeholder management</span>
+            <span class="cs-tag">Cross-org alignment</span>
+            <span class="cs-tag">Unified experience</span>
+          </div>
+          <div class="cs-card-arrow">Read case study &rarr;</div>
+        </a>
+
+        <a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html" class="cs-card">
+          <div class="cs-card-thumb">
+            <img src="casestudy/DesignSystem-Milestone/images/final_component_scroller.png" alt="Milestone Component final design" style="object-position: center 12%;">
+          </div>
+          <div class="cs-card-eyebrow">Case Study &middot; Design System</div>
+          <div class="cs-card-title">Milestone Component</div>
+          <p class="cs-card-desc">Stewarding a product team's proposal through design system governance, extending it into a responsive, documented, reusable system asset.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">Design system ownership</span>
+            <span class="cs-tag">Scalable components</span>
+            <span class="cs-tag">Enterprise platforms</span>
+          </div>
+          <div class="cs-card-arrow">Read case study &rarr;</div>
+        </a>
+
+        <a href="casestudy/GFG-productInspector/product-inspector-case-study.html" class="cs-card">
+          <div class="cs-card-thumb">
+            <img src="casestudy/GFG-productInspector/images/final_design.png" alt="Product Inspector final design" style="object-position: center 10%;">
+          </div>
+          <div class="cs-card-eyebrow">Case Study &middot; E-commerce</div>
+          <div class="cs-card-title">Product Inspector</div>
+          <p class="cs-card-desc">Designing a B2B product inspection tool for fashion e-commerce operations teams across Southeast Asia and Australia.</p>
+          <div class="cs-tags">
+            <span class="cs-tag">E-commerce</span>
+            <span class="cs-tag">Enterprise platforms</span>
+          </div>
+          <div class="cs-card-arrow">Read case study &rarr;</div>
+        </a>
+
+      </div>
+    </section>
+
     <!-- QUALIFICATIONS -->
     <section class="section" id="qualifications">
       <p class="section-label">Qualifications</p>
-      <h2>Education and experience</h2>
 
       <!-- Education -->
       <div class="qual-block">
