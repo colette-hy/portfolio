@@ -21,17 +21,23 @@
       <span class="nav-toggle-bar"></span>
     </button>
     <ul class="nav-links" id="nav-menu">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index-preview.html" class="active">Home</a></li>
       <li><a href="casestudy/HDB-timeline/timeline-case-study.html">Application Timeline</a></li>
       <li><a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html">Milestone Component</a></li>
       <li><a href="casestudy/GFG-productInspector/product-inspector-case-study.html">Product Inspector</a></li>
-      <li><a href="mailto:colettefung@gmail.com" class="nav-email">colettefung@gmail.com</a></li>
+      <li><a href="mailto:colettefung@hotmail.com" class="nav-email">colettefung@hotmail.com</a></li>
     </ul>
   </nav>
 
   <main>
 
-    <!-- HERO -->
+    <!-- HERO
+         Changes vs. original:
+         · h1 is now much larger and flush-left (CSS handles scale)
+         · Portrait offset downward via CSS margin-top to create visual tension
+         · Subtitle rewritten: personal moment opener instead of career summary
+         · Removed hero-tagline (subtitle carries the full intro now)
+    -->
     <section class="hero">
       <div class="hero-text">
         <h1>Colette Fung</h1>
@@ -40,7 +46,7 @@
       <img src="portrait.png" alt="Colette Fung" class="portrait-img">
     </section>
 
-    <!-- ABOUT ME -->
+    <!-- ABOUT ME — unchanged copy, same section -->
     <section class="section" id="about">
       <h2>Curiosity as a career strategy</h2>
       <div class="about-prose">
@@ -52,65 +58,75 @@
       </div>
     </section>
 
-    <!-- CASE STUDIES -->
+    <!-- CASE STUDIES
+         Changes vs. original:
+         · Grid is now 2-column (was 3-column)
+         · First card gets class cs-card--featured and a cs-card-content wrapper
+           so it can display as a full-width horizontal card (image left, content right)
+         · Cards 2 & 3 are unchanged structurally but benefit from the 2-col layout
+    -->
     <section class="section" id="work">
       <p class="section-label">Case Studies</p>
       <div class="cs-grid">
 
-        <a href="casestudy/HDB-timeline/timeline-case-study.html" class="cs-card">
+        <!-- CARD 1: Featured — full-width horizontal layout -->
+        <a href="casestudy/HDB-timeline/timeline-case-study.html" class="cs-card cs-card--featured">
           <div class="cs-card-thumb">
             <img src="casestudy/HDB-timeline/final-design-desktop.png" alt="Application Timeline final design" style="object-position: center 18%;">
           </div>
-          <div class="cs-card-eyebrow">Case Study &middot; Public Sector</div>
-          <div class="cs-card-title">Application Timeline</div>
-          <p class="cs-card-desc">Bridging two teams with split ownership of a citizen-facing page, extending validation to mobile, and producing a cross-team endorsed layout pattern.</p>
-          <div class="cs-tags">
-            <span class="cs-tag">Citizen service</span>
-            <span class="cs-tag">Stakeholder management</span>
-            <span class="cs-tag">Cross-org alignment</span>
-            <span class="cs-tag">Unified experience</span>
+          <div class="cs-card-content">
+            <div class="cs-card-eyebrow">Case Study &middot; Public Sector</div>
+            <div class="cs-card-title">Application Timeline</div>
+            <p class="cs-card-desc">Two teams, split ownership, one citizen-facing page. The constraint: neither team could touch the other's codebase. The decision: design a layout pattern both could adopt without either having to rebuild. The outcome: turning fragmented ownerships into a cross-team endorsed solution.</p>
+            <div class="cs-tags">
+              <span class="cs-tag">Citizen service</span>
+              <span class="cs-tag">Stakeholder management</span>
+              <span class="cs-tag">Cross-org alignment</span>
+              <span class="cs-tag">Unified experience</span>
+            </div>
+            <div class="cs-card-arrow">&rarr;</div>
           </div>
-          <div class="cs-card-arrow">Read case study &rarr;</div>
         </a>
 
+        <!-- CARD 2 -->
         <a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html" class="cs-card">
           <div class="cs-card-thumb">
             <img src="casestudy/DesignSystem-Milestone/images/final_component_scroller.png" alt="Milestone Component final design" style="object-position: center 12%;">
           </div>
           <div class="cs-card-eyebrow">Case Study &middot; Design System</div>
           <div class="cs-card-title">Milestone Component</div>
-          <p class="cs-card-desc">Stewarding a product team's proposal through design system governance, extending it into a responsive, documented, reusable system asset.</p>
+          <p class="cs-card-desc">A product team proposed a component that solved their problem but would have broken consistency for every other team using the design system. The challenge was steering it through governance without killing the momentum. The result: a more flexible, documented system asset.</p>
           <div class="cs-tags">
             <span class="cs-tag">Design system ownership</span>
             <span class="cs-tag">Scalable components</span>
-            <span class="cs-tag">Enterprise platforms</span>
+            <span class="cs-tag">System thinking</span>
           </div>
-          <div class="cs-card-arrow">Read case study &rarr;</div>
+          <div class="cs-card-arrow">&rarr;</div>
         </a>
 
+        <!-- CARD 3 -->
         <a href="casestudy/GFG-productInspector/product-inspector-case-study.html" class="cs-card">
           <div class="cs-card-thumb">
             <img src="casestudy/GFG-productInspector/images/final_design.png" alt="Product Inspector final design" style="object-position: center 10%;">
           </div>
           <div class="cs-card-eyebrow">Case Study &middot; E-commerce</div>
           <div class="cs-card-title">Product Inspector</div>
-          <p class="cs-card-desc">Designing a B2B product inspection tool for fashion e-commerce operations teams across Southeast Asia and Australia.</p>
+          <p class="cs-card-desc">Designing a B2B price trend inspector tool for pricing teams meant learning how pricing decisions actually get made in a warehouse — before touching Figma. The tool had to work for buyers in Australia who think in different units than buyers in the Asia region.</p>
           <div class="cs-tags">
             <span class="cs-tag">E-commerce</span>
             <span class="cs-tag">Enterprise platforms</span>
-            <span class="cs-tag">Retail pricing</span>
+            <span class="cs-tag">Online retail pricing</span>
           </div>
-          <div class="cs-card-arrow">Read case study &rarr;</div>
+          <div class="cs-card-arrow">&rarr;</div>
         </a>
 
       </div>
     </section>
 
-    <!-- QUALIFICATIONS -->
+    <!-- QUALIFICATIONS — unchanged -->
     <section class="section" id="qualifications">
       <p class="section-label">Qualifications</p>
 
-      <!-- Education -->
       <div class="qual-block">
         <p class="qual-block-title">Education</p>
         <ul class="edu-list">
@@ -146,7 +162,6 @@
         </ul>
       </div>
 
-      <!-- Work History -->
       <div class="qual-block">
         <p class="qual-block-title">Design-related Work History</p>
         <ul class="work-list">
@@ -177,7 +192,6 @@
         </ul>
       </div>
 
-      <!-- Languages -->
       <div class="qual-block">
         <p class="qual-block-title">Languages</p>
         <ul class="lang-list">
@@ -200,8 +214,10 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <p>&copy; <span id="yr"></span> Colette Fung &nbsp;&middot;&nbsp; <a href="mailto:colettefung@gmail.com" style="color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--border);">colettefung@gmail.com</a></p>
+    <span class="site-footer-signoff">Multilingual UX Practitioner grounded in Psychology and Information Systems</span>
+    <span class="site-footer-copy">&copy; <span id="yr"></span> &nbsp;&middot;&nbsp; <a href="mailto:colettefung@hotmail.com">colettefung@hotmail.com</a></span>
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
