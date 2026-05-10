@@ -23,7 +23,7 @@
     <li><a href="timeline-case-study.html" class="active">Application Timeline</a></li>
     <li><a href="../DesignSystem-Milestone/milestone-component-case-study.html">Milestone Component</a></li>
     <li><a href="../GFG-productInspector/product-inspector-case-study.html">Product Inspector</a></li>
-    <li><a href="mailto:colettefung@gmail.com" class="nav-email">colettefung@gmail.com</a></li>
+    <li><a href="mailto:colettefung@hotmail.com" class="nav-email">colettefung@hotmail.com</a></li>
   </ul>
 </nav>
 
@@ -37,10 +37,8 @@
   <h1>One timeline, <em>four teams</em>, two views</h1>
 
   <p class="summary">
-    The Flat Application Timeline Page is where citizens land to see where their BTO application currently stands. <br/>The page is delivered as two separate views, each shown to citizens based on their current application stage: <br/>i) Cards 1 to 4, owned by my in-house team (Team A), and <br />ii) Cards 5 to 8, owned by an external agency partner (Team B). Team B had completed discovery research, an initial usability test on a subset of their active cards, and a first design refinement before being pulled to other priorities. <br />In the interim, the in-house design system was updated, which became an additional consideration when I took over. <br />My role was to bring the design back into alignment: updating it to reflect the refreshed design system, validating the untested Cards 1 to 4 content, extending validation to the previously untested mobile view, and producing a layout pattern that Team B's design team agreed to adopt for their own cards once their development capacity resumes.
+    The Flat Application Timeline Page is where citizens land to see where their BTO application currently stands. <br/>The page is delivered as two separate views, each shown to citizens based on their current application stage: <br/>i) Cards 1 to 4, owned by my in-house team (Team A), and <br />ii) Cards 5 to 8, owned by an external agency partner (Team B). <br />In the interim, the in-house design system was updated, which became an additional consideration when I took over. <br /><strong>My role was to bring the design back into multiple alignments </strong>: reflecting the design system updates, validating the untested Cards 1 to 4 content, extending validation to the previously untested mobile view, and producing a layout pattern that Team B's design team agreed to adopt for their own cards once their development capacity resumes.
   </p>
-
-
   <!-- PROCESS TIMELINE -->
   <div class="timeline-graphic" style="margin-bottom: 64px;">
 <svg width="100%" viewBox="0 0 680 540" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -177,15 +175,26 @@
 
     <!-- PHASE 01 -->
     <div class="phase">
-      <div class="phase-label">Phase 01 <span class="sep">▪</span> Establish the foundation</div>
-      <div class="phase-title">Synthesising industry practice, compliance standards and business requirements </div>
+      <div class="phase-label">Phase 01 <span class="sep">▪</span> Synthesising industry practice, compliance standards and business requirements</div>
+      
 
       <div class="approach-step">
         <div class="step-num">01</div>
+
         <div>
           <div class="step-title">Benchmarked timeline patterns externally</div>
+           <div class="sidenote-layout">
+    <div class="sidenote">
+      <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
+      <div class="sidenote__bubble">
+        <div class="sidenote__label">Insight</div>
+        <div class="sidenote__body">The divergence between this approach and the industry pattern became the basis for proposing an alternative direction worth testing.</div>
+      </div>
+    </div>
+  </div>
           <div class="step-body">
-            Researched how other governments and Singapore agencies present timeline steppers in citizen-facing applications. The benchmarking surfaced a recurring pattern across the examples reviewed: <em>content-rich timelines were typically collapsed into a simplified view</em>, rather than displayed in full. This diverged from Team B's approach, which kept all step details visible, auto-scrolled on page load, and provided a step jumper to navigate to the current active step. The step jumper appeared as a sticky element on the side of the page, showing all steps as a compact list; on mobile, it translated to a sticky dropdown. Tapping any step would scroll the page to that step's card. The divergence between this approach and the industry pattern became the basis for proposing an alternative direction worth testing.
+            <p>Researched how other governments and Singapore agencies present timeline steppers in citizen-facing applications. The benchmarking surfaced a recurring pattern across the examples reviewed: content-rich timelines were typically collapsed into a simplified view, rather than displayed in full. </p><p>This diverged from Team B's approach, which kept all step details visible, auto-scrolled on page load, and provided a step jumper to navigate to the current active step. </p>
+
           </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
@@ -193,43 +202,54 @@
             <div class="thumb-wrap" data-full="CAgov-timeline.png" data-alt="Benchmark · Canada Government" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
               <img src="CAgov-timeline.png" alt="Benchmark · Canada Government" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · Canada Government</strong>Step descriptions are short and precise. Longer instructions are collapsed and only revealed when the citizen expands a step.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · Canada Government</strong>Step descriptions are short and precise. Longer instructions are collapsed and only revealed when the citizen expands a step.</figcaption>
           </figure>
           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="MHAtimeline.png" data-alt="Benchmark · MHA Singapore" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
               <img src="MHAtimeline.png" alt="Benchmark · MHA Singapore" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · MHA Singapore</strong>Step titles surface at a glance. Detail is hidden by default and expandable on demand, consistent with the pattern found across the examples reviewed.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Benchmark · MHA Singapore</strong>Step titles surface at a glance. Detail is hidden by default and expandable on demand, consistent with the pattern found across the examples reviewed.</figcaption>
           </figure></div>
         </div>
       </div>
 
-         
-  
+ 
+
+         <div class="sidenote-layout">
+  <div class="sidenote">
+    <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
+    <div class="sidenote__bubble">
+      <div class="sidenote__label">Research decision</div>
+      <div class="sidenote__body">Keep the research dynamic by building on Team B's existing proposal, carrying forward what had been validated and identifying what had been left untested.</div>
+     
+    </div>
+  </div>
+</div>
 
       <div class="approach-step">
         <div class="step-num">02</div>
         <div>
           <div class="step-title">Inherited Team B's prior work, and identified the gaps in it</div>
           <div class="step-body">
-            Reviewed Team B's UT findings, their last refined design proposal, and the <em>scope</em> of their usability testing. The goal was to carry forward what had been validated, not to redo what had already been thought through, but also to identify what had been left untested. One gap surfaced clearly: Team B had only validated the desktop view; the mobile version of the timeline had never been tested. That gap shaped the validation scope I would later own.
+            <p>
+Reviewed Team B's usability test findings, their last refined design proposal, and the scope of their usability testing. </p>One gap surfaced clearly: Team B had only validated the desktop view; the mobile version of the timeline had never been tested. That gap shaped the validation scope I would later own.</p>
           </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="TeamBProposedTimeline_desktop.png" data-alt="Team B · Last Design · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
               <img src="TeamBProposedTimeline_desktop.png" alt="Team B · Last Design · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Team B · Last Design · Desktop</strong>All step details visible on load, with a sticky step jumper on the right for milestone navigation.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Team B · Last Design · Desktop</strong>All step details visible on load, with a sticky step jumper on the right for milestone navigation.</figcaption>
           </figure>
           <figure style="margin:0;">
             <img src="TeamBProposedTimeline_stepjumper-zoomin.png" alt="Team B · Step Jumper · Detail" style="display:block;width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:12px;">
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Team B · Step Jumper · Detail</strong>The sticky step jumper listing completed and pending milestones, the interaction pattern later tested against the collapsed toggle.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Team B · Step Jumper · Detail</strong>The sticky step jumper listing completed and pending milestones, the interaction pattern later tested against the collapsed toggle.</figcaption>
           </figure>
           <figure class="phone-frame">
             <div class="phone-shell">
@@ -248,7 +268,10 @@
         </div>
 
       </div>
+
+
         
+
 
       <div class="approach-step">
         <div class="step-num">03</div>
@@ -260,6 +283,8 @@
         </div>
       </div>
 
+
+
       <div class="approach-step">
         <div class="step-num">04</div>
         <div>
@@ -267,9 +292,11 @@
           <div class="step-body">
             Worked with the system administrators who run the live system day-to-day to understand the critical business processes behind Cards 1 to 4.
           </div>
+          
           </div>
         </div>
         </div>
+
 
 
     <!-- PHASE 02 -->
@@ -282,33 +309,33 @@
         <div>
           <div class="step-title">Drafted an alternative direction grounded in the benchmarking</div>
           <div class="step-body">
-            Designed a <em>collapsed completed step toggle</em> as a deliberate alternative to Team B's step jumper. Three principles shaped the alternative:
+            Designed a collapsed completed step toggle as a deliberate alternative to Team B's step jumper. Three principles shaped the alternative:
             <ul>
               <li><strong>No auto-scroll.</strong> Citizens should not see unexpected page movement without their explicit intent to scroll.</li>
-              <li><strong>Completed steps as less critical content.</strong> Past steps were collapsed by default, surfaced only when citizens chose to reveal them via a <em>Show completed steps</em> toggle.</li>
+              <li><strong>Completed steps as less critical content.</strong> Past steps were collapsed by default, surfaced only when citizens chose to reveal them via a Show completed steps toggle.</li>
               <li><strong>Active step as the entry point.</strong> With completed steps collapsed, the active step card was always the first card a citizen saw on page load, without any auto-scrolling to reach it.</li>
             </ul>
             The design was produced for both desktop and mobile from the start, since extending validation to mobile was one of the gaps identified in Step 02.
           </div>
         <div style="margin: 32px 0 8px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Alternative approach to the Initial Suggestion</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Alternative approach to the Initial Suggestion</div>
       </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="TeamA-collapsedCompleted-desktop-default.png" data-alt="Alternative Design · Desktop · Default" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
               <img src="TeamA-collapsedCompleted-desktop-default.png" alt="Alternative Design · Desktop · Default" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Alternative Design · Desktop · Default</strong>Completed steps collapsed. Active step anchors the top of the timeline.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Alternative Design · Desktop · Default</strong>Completed steps collapsed. Active step anchors the top of the timeline.</figcaption>
           </figure>
           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="TeamA-collapsedCompleted-desktop-expanded.png" data-alt="Alternative Design · Desktop · Expanded" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:280px;transition:border-color 0.2s ease;">
               <img src="TeamA-collapsedCompleted-desktop-expanded.png" alt="Alternative Design · Desktop · Expanded" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:4px 7px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:11px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Alternative Design · Desktop · Expanded</strong>Completed steps revealed after toggling Show completed steps.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:8px;padding-left:8px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;">Alternative Design · Desktop · Expanded</strong>Completed steps revealed after toggling Show completed steps.</figcaption>
           </figure>
           <figure class="phone-frame">
             <div class="phone-shell">
@@ -327,32 +354,67 @@
 
         </div>
       </div>
-      
+
+       <div class="sidenote-layout">
+    <div class="sidenote">
+      <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
+      <div class="sidenote__bubble">
+        <div class="sidenote__label">Working principle</div>
+        <div class="sidenote__body">Aligment across teams with separate reporting lines and development timelines had to be built into the process from the start, not negotiated at the end.</div>
+      </div>
+    </div>
+  </div>
+     
       <div class="approach-step">
+
+        
         <div class="step-num">06</div>
+
         <div>
+
           <div class="step-title">Aligned the test scope with Team B before running it</div>
+
+
           <div class="step-body">
-            Shared the test scope and both prototypes with Team B's design team before conducting the usability test. The intent was twofold: to ensure their design was being represented accurately in the prototype I had built, and to remove any political risk of A/B-testing a peer team's design without their visibility. Coordinating across teams with separate reporting lines and misaligned development timelines meant that alignment had to be built into the process from the start, not negotiated at the end.
+
+            Shared the test scope and both prototypes with Team B's design team before conducting the usability test. The intent was twofold: to ensure their design was being represented accurately in the prototype I had built, and to remove any political risk of A/B-testing a peer team's design without their visibility.
           </div>
         </div>
       </div>
 
+  
+
+  
+
       <div class="approach-step">
+
+
+
         <div class="step-num">07</div>
         <div>
           <div class="step-title">Designed and ran the A/B usability test</div>
           <div class="step-body">
+          
             Agreed the test scope and scenarios with the System Stewards, then designed the prototypes, scenarios and scripts on my own. My UX teammate served as note-taker; I moderated. A round of <strong>10 participants</strong>, split evenly between the two prototypes (5 per group), tested across both desktop and mobile.
           </div>
+
+          <div class="sidenote-layout">
+    <div class="sidenote">
+      <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
+      <div class="sidenote__bubble">
+        <div class="sidenote__label">Question Statement</div>
+        <div class="sidenote__body">Does Design A (collapsed completed steps) or Design B (step jumper) help Users identify which application stage they are at?</div>
+      </div>
+    </div>
+  </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
           <figure style="margin:0;">
             <div class="thumb-wrap" data-full="TeamA-prototypeA.png" data-alt="Prototype A · Collapsed Toggle · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
               <img src="TeamA-prototypeA.png" alt="Prototype A · Collapsed Toggle · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Prototype A · Collapsed Toggle · Desktop</strong>The alternative design: completed steps hidden by default, active step anchored at top, no auto-scroll.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Prototype A · Collapsed Toggle · Desktop</strong>The alternative design: completed steps hidden by default, active step anchored at top, no auto-scroll.</figcaption>
           </figure>
           <figure class="phone-frame">
             <div class="phone-shell">
@@ -372,10 +434,12 @@
             <div class="thumb-wrap" data-full="TeamB-prototypeB.png" data-alt="Prototype B · Step Jumper · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:12px;overflow:hidden;max-height:320px;transition:border-color 0.2s ease;">
               <img src="TeamB-prototypeB.png" alt="Prototype B · Step Jumper · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
               <div style="position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
+              <span style="position:absolute;bottom:8px;right:8px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 8px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Expand</span>
             </div>
-            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Prototype B · Step Jumper · Desktop</strong>Team B's design, re-prototyped with the refreshed design system applied. Auto-scrolls to the active step; sticky step jumper on the right.</figcaption>
+            <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:10px;padding-left:10px;border-left:2px solid var(--accent);line-height:1.5;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Prototype B · Step Jumper · Desktop</strong>Team B's design, re-prototyped with the refreshed design system applied. Auto-scrolls to the active step; sticky step jumper on the right.</figcaption>
           </figure>
+
+
           <figure class="phone-frame">
             <div class="phone-shell">
               <div class="phone-notch"></div>
@@ -390,6 +454,7 @@
           </figure>
         </div>
 
+
         </div>
       </div>
 
@@ -400,27 +465,40 @@
 <!-- PIVOT CALLOUT -->
       <div class="pivot-callout">
         <div class="pivot-label">The Finding That Decided The Recommendation</div>
-        <h3>The test surfaced a stronger argument than expected</h3>
-        <p>The test surfaced no significant difference between the two prototypes on confidence or time. What it did surface was unexpected: <strong>none of the participants who saw Team B's prototype interacted with the step jumper at all.</strong> When asked what they thought the step jumper was for, they described it as an overview of all steps, not as a navigation control.</p>
+      
+        <p>The test surfaced no significant difference between the two prototypes on confidence or time. </p><p>None of the participants who saw Team B's prototype interacted with the step jumper at all.</p><p> When asked what they thought the step jumper was for, they described it as an overview of all steps, not as a navigation control.</p>
         <p>On Team A's prototype, participants did not toggle "Show completed steps" to understand where they were in the process. When asked what the toggle would do, they clicked it once and immediately understood its function.</p>
       </div>
 
+
               <div class="approach-step">
+
         <div class="step-num">08</div>
         <div>
+          <div class="sidenote-layout">
+    <div class="sidenote">
+      <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
+      <div class="sidenote__bubble">
+        <div class="sidenote__label">Key decision</div>
+        <div class="sidenote__body">The recommendation was not to build a better step jumper. It was to remove the step jumper entirely.</div>
+      </div>
+    </div>
+  </div>
           <div class="step-title">Recommended the simpler design on development-cost grounds</div>
           <div class="step-body">
-            The recommendation to my approver and the System Stewards rested not on what the test showed users preferred, but on <em>what the test showed users didn't need</em>. With no measurable advantage from the step jumper, no observed use of it, and the fact that the step jumper was a new component not in the design system, requiring dedicated development effort to build. The simpler collapsed toggle, already aligned to existing components, was the lower-risk, lower-cost path. The recommendation was not to build a better step jumper. It was to remove the step jumper entirely. The Director and System Stewards endorsed the recommendation.
+            <p>The recommendation to my approver and the System Stewards rested not on what the test showed users preferred, but on what the test showed users didn't need. With no measurable advantage from the step jumper, no observed use of it, and the fact that the step jumper was a new component not in the design system, requiring dedicated development effort to build. </p><p>The simpler collapsed toggle, already aligned to existing components, was the lower-risk, lower-cost path. The Director and System Stewards endorsed the recommendation.</p>
           </div>
         </div>
       </div>
+
+  
 
       <div class="approach-step">
         <div class="step-num">09</div>
         <div>
           <div class="step-title">Handed over to Team B for alignment</div>
           <div class="step-body">
-            Shared the final design with Team B's design team. Because they had been kept visible to the test scope and prototypes from the outset, the share-out was a clean acceptance rather than a negotiation. That outcome was not incidental. It was the result of keeping Team B visible throughout, rather than presenting a finished recommendation for them to react to. Team B's design team agreed to adopt the layout pattern for their Cards 5 to 8 once their development capacity resumes.
+            Shared the final design with Team B's design team. Because they had been kept visible to the test scope and prototypes from the outset, the share-out was a clean acceptance rather than a negotiation. Team B's design team agreed to adopt the layout pattern for their Cards 5 to 8 once their development capacity resumes.
           </div>
         </div>
       </div>
@@ -429,14 +507,14 @@
 
   <!-- SECTION 03 -->
   <section>
-    <div class="section-label">03 <span class="sep">▪</span> Design Decisions</div>
-    <h2>Translation, not reinvention</h2>
+    <div class="section-label">03 <span class="sep">▪</span> Other Design Points of the Final Recommendation</div>
+    <h2>Translation across devices, not reinvention</h2>
 
-    <p>With the collapsed completed step toggle established as the foundational pattern, the remaining design decisions were ones of translation rather than reinvention: how the pattern carried into mobile, how it aligned with Team B's parallel ownership of Cards 5 to 8, and how the content within Cards 1 to 4 should be re-surfaced to match the simplified primary view.</p>
+    <p>With the collapsed completed step toggle established as the foundational pattern, the remaining design decisions were about how the pattern carried into mobile</p>
 
     <div class="decision-block"> 
       <h3 data-marker="Decision 01">Mobile translation followed naturally from the chosen pattern</h3>
-      <p>The collapsed toggle approach carried into mobile without structural change. The button "Show completed steps" remained above the main timeline, visible at the top of the page on load. The side widgets, carrying secondary information, stacked below the timeline, in line with their secondary role. No separate mobile interaction model was needed. That cleanliness validated the pattern choice.</p>
+      <p>The collapsed toggle approach carried into mobile without structural change. The button "Show completed steps" remained above the main timeline, visible at the top of the page on load.</p> <p>The side widgets, carrying secondary information, stacked below the timeline, in line with their secondary role. No separate mobile interaction model was needed. That cleanliness validated the pattern choice.</p>
     </div>
 
     <div class="decision-block">
@@ -445,33 +523,31 @@
     </div>
 
     <div class="decision-block">
-      <h3 data-marker="Decision 03">Re-surfaced stage-conditional content from primary to secondary</h3>
+      <h3 data-marker="Decision 03">Re-surfaced stage-conditional content on side panel</h3>
       <p>The original Cards 1 to 4 carried three notes about HDB Flat Eligibility (HFE) letter validity. Each note was true at a different stage, but together they read as contradictory at first glance. Citizens had to mentally figure out which rule applied to them. The card was making the citizen do work the system should have done.</p>
-
-      <p>A combined move addressed it:</p>
+       <figure class="figure-full" style="margin: 24px 0 32px;">
+          <img src="final-design-HFE-sidepanel-expandcollapsed.png" alt="HFE Side Panel · Collapsed and Expanded" style="display:block;width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:16px;">
+          <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:12px;padding-left:12px;border-left:2px solid var(--accent);line-height:1.5;max-width:760px;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">HFE Side Panel · Collapsed and Expanded</strong>Consolidated HFE renewal reference re-surfaced to the side panel. Citizens expand the accordion only when needed.</figcaption>
+        </figure>
 
       <ul>
         <li><strong>Consolidated</strong> the three notes into a single coherent reference covering HFE letter renewal conditions.</li>
         <li><strong>Re-surfaced</strong> the consolidated reference into the side panel, behind an accordion that citizens open only if they want to read more.</li>
-        <li><strong>Protected the primary card content</strong> to carry only what was stage-relevant: balloting results on Card 2, flat booking appointment time and venue on Card 3, and so on.</li>
       </ul>
-        <figure class="figure-full" style="margin: 24px 0 32px;">
-          <img src="final-design-HFE-sidepanel-expandcollapsed.png" alt="HFE Side Panel · Collapsed and Expanded" style="display:block;width:100%;height:auto;background:#fff;border:1px solid var(--rule);padding:16px;">
-          <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:13px;color:var(--ink-soft);margin-top:12px;padding-left:12px;border-left:2px solid var(--accent);line-height:1.5;max-width:760px;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">HFE Side Panel · Collapsed and Expanded</strong>Consolidated HFE renewal reference re-surfaced to the side panel. Citizens expand the accordion only when needed.</figcaption>
-        </figure>
+       
     </div>
 
     <!-- FINAL DESIGN IMAGES -->
     <div style="margin: 48px 0 0;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Final endorsed design</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Final endorsed design</div>
     </div>
         <figure class="figure-full thumb" style="margin:24px 0 32px;">
           <div class="thumb-wrap" data-full="final-design-desktop.png" data-alt="Final Design · Desktop" style="position:relative;cursor:zoom-in;background:#fff;border:1px solid var(--rule);padding:16px;overflow:hidden;max-height:360px;transition:border-color 0.2s ease;">
             <img src="final-design-desktop.png" alt="Final Design · Desktop" style="display:block;width:100%;height:auto;border:none;padding:0;background:transparent;">
             <div style="content:'';position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.95));pointer-events:none;"></div>
-            <span class="expand-hint" style="position:absolute;bottom:12px;right:12px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:6px 10px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Click to expand</span>
+            <span class="expand-hint" style="position:absolute;bottom:12px;right:12px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:6px 10px;border-radius:2px;pointer-events:none;z-index:2;">&#x2922;&nbsp;&nbsp;Click to expand</span>
           </div>
-          <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:13px;color:var(--ink-soft);margin-top:12px;padding-left:12px;border-left:2px solid var(--accent);line-height:1.5;max-width:760px;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Final Design · Desktop</strong>Completed steps collapsed, active step anchored at top, HFE content in the side panel accordion.</figcaption>
+          <figcaption style="font-family: 'Source Sans 3',sans-serif;font-size:14px;color:var(--ink-soft);margin-top:12px;padding-left:12px;border-left:2px solid var(--accent);line-height:1.5;max-width:760px;"><strong style="color:var(--ink);font-weight:500;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;display:inline-block;margin-right:6px;">Final Design · Desktop</strong>Completed steps collapsed, active step anchored at top, HFE content in the side panel accordion.</figcaption>
         </figure>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;align-items:start;">
           <figure class="phone-frame">
@@ -593,6 +669,8 @@
     </div>
   </section>
 
+  
+
   <p class="disclaimer">At time of writing, this design has been endorsed but not yet released to production. The final implementation may differ.</p>
 
   <footer>
@@ -602,7 +680,7 @@
 </div>
 <!-- Lightbox overlay -->
 <div id="lightbox" role="dialog" aria-hidden="true" aria-label="Expanded image view" style="position:fixed;inset:0;background:rgba(30,45,61,0.96);z-index:1000;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out;">
-  <button id="lightbox-close" aria-label="Close expanded image" style="position:fixed;top:24px;right:24px;background:var(--paper);border:none;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:10px 16px;cursor:pointer;z-index:1001;transition:background 0.2s ease,color 0.2s ease;">Close ✕</button>
+  <button id="lightbox-close" aria-label="Close expanded image" style="position:fixed;top:24px;right:24px;background:var(--paper);border:none;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;padding:10px 16px;cursor:pointer;z-index:1001;transition:background 0.2s ease,color 0.2s ease;">Close ✕</button>
   <div style="position:relative;max-width:100%;max-height:100%;overflow:auto;cursor:default;">
     <img id="lightbox-img" src="" alt="" style="display:block;max-width:100%;height:auto;background:#fff;padding:24px;">
   </div>
@@ -652,6 +730,28 @@
         btn.focus();
       }
     });
+  })();
+</script>
+
+<script>
+  (function () {
+    var notes = document.querySelectorAll('.sidenote');
+    if (!notes.length) return;
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      }, { threshold: 0.15 });
+      notes.forEach(function (note) { observer.observe(note); });
+    } else {
+      // fallback for older browsers
+      notes.forEach(function (note) { note.classList.add('is-visible'); });
+    }
   })();
 </script>
 
