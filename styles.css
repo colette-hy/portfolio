@@ -1504,6 +1504,18 @@ footer {
   .phone-frame { max-width: 180px; }
   .phone-frame .phone-screen img { max-height: 300px; }
   .hero-preview { grid-template-columns: 1fr !important; }
+
+  /* Preview/screenshot images: always fill their container's width on mobile */
+  .container img:not(.portrait-img):not(.sidenote__avatar) {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Multi-image comparison rows (inline grid, e.g. "Alternative approach" thumbnails):
+     stack to a single column on mobile instead of squeezing side by side */
+  .container div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 
