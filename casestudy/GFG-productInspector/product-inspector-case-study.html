@@ -36,8 +36,17 @@
   <h1>Product Inspector for Competitor <em>Price Match</em></h1>
 
   <p class="summary">
-    The pricing system regularly suggests new prices based on the prices of the same products on competitors' websites. Managers would decide if they want to match the product prices with the competitors'. These price suggestions were listed out in table view, together with price suggestions from other channels, such as those manually uploaded by users. <strong>Managers need a dedicated view for checking price recommendations on product level to decide on price matching product by product.</strong>
+    The pricing system regularly suggests new prices based on the prices of the same products on competitors' websites. These price suggestions were listed out in table view, together with price suggestions from other channels, such as those manually uploaded by users. <strong>Managers need a dedicated view for checking price recommendations on product level to decide on price matching product by product.</strong>
   </p>
+
+  <div class="drawbacks">
+    <div class="drawbacks-label">Design approach at a glance</div>
+    <ol>
+      <li>Narrowed the target from all regions to Australia only, after discovery research showed a workflow mismatch elsewhere.</li>
+      <li>Cut a planned price-history chart from MVP scope after usability testing showed it would mislead, not inform.</li>
+      <li>Shipped within the 4-week design timeline, validated with the primary user group before handoff.</li>
+    </ol>
+  </div>
 
   <!-- SECTION 01 -->
   <section>
@@ -160,21 +169,27 @@
       <div>
         <div class="step-title">Make a strategic pivot based on user evidence</div>
         <div class="step-body">
-          A key finding from Iteration 1 changed the design direction: <strong>most participants outside Australia said they did not foresee themselves using a product inspector view.</strong> In their operations, they tended to check prices across a list of products rather than reviewing one product at a time. I made the decision to focus the design on pricing managers for the Australian market and adjusted the design accordingly.
+          A key finding from Iteration 1 changed the design direction: <strong>most participants outside Australia said they did not foresee themselves using a product inspector view.</strong> In their operations, they tended to check prices across a list of products rather than reviewing one product at a time.
         </div>
       </div>
+    </div>
+
+    <div class="pivot-callout">
+      <div class="pivot-label">The Key Decision</div>
+      <h3>Narrowing the target from all regions to Australia only</h3>
+      <p>Rather than design for a global user who wouldn't use the feature, I focused the design on Australian pricing managers and rebuilt the direction around their actual workflow, reprioritising competitor data over internal data in the next iteration.</p>
     </div>
   </section>
 
   <!-- SECTION 03 -->
   <section>
     <div class="section-label">03 <span class="sep">▪</span> Design Decisions</div>
-    <h2>Refining the design for the Australian market</h2>
+    <h2>Reorienting around competitor data</h2>
 
     <p>With the target user clarified, I restructured the design around the decisions that Australian pricing managers actually needed to make: is this the right competitor product? And does our platform have room to adjust its price?</p>
 
     <div class="decision-block">
-      <h3 data-marker="Iteration">Iteration 2 prototype: reoriented for Australia</h3>
+      <h3 data-marker="Iteration">Prioritising competitor data over internal data</h3>
       <p>I adjusted the design to emphasise competitor data over internal data, showing the competitor's product picture alongside the platform's, and surfacing size availability as a primary data point. User interactions including approving prices, rejecting them, reporting a wrong match and navigating to the next SKU were also built into this prototype.</p>
 
       <div class="figure-pair">
@@ -187,11 +202,8 @@
           <figcaption><strong>Iteration 2 · Price history expanded</strong>Price history expanded into a full view with a Back button, showing own platform price trend over 6 months alongside highest, lowest and recommended price figures.</figcaption>
         </figure>
       </div>
-    </div>
 
-    <div class="decision-block">
-      <h3 data-marker="Validation">Usability testing: Australia-focused</h3>
-      <p>Iteration 2 interviews focused on managers from the Australian market. The updated prototype was tested with this group to validate the design direction and surface any remaining friction.</p>
+      <p><strong>Validated with Australian managers:</strong> Iteration 2 interviews tested the updated prototype with this group to confirm the design direction and surface any remaining friction.</p>
 
       <div class="drawbacks">
         <div class="drawbacks-label">Takeaways from Iteration 2: Australian Managers</div>
@@ -217,7 +229,7 @@
 
     <p>The final Product Inspector was not a rearrangement of the existing 30-column table. It was a purpose-built view designed around the decisions Australian pricing managers needed to make, validated through two iterations of user research.</p>
 
-    <div class="figure-pair" style="grid-template-columns: 2fr 1fr;">
+    <div class="figure-pair">
       <figure>
         <img src="images/final_design.png" alt="Final MVP design of the Product Inspector">
         <figcaption><strong>Final MVP · Full view</strong>Final design showing side-by-side product images with exact size lists, full pricing and inventory data, and the complete action bar.</figcaption>
@@ -244,7 +256,7 @@
     </div>
 
     <div class="evidence-block">
-      <h3>Original wireframe vs. final MVP</h3>
+      <h3>What changed, and why</h3>
       <p>The table below captures the three most significant decisions made between the initial wireframe and the final MVP.</p>
 
       <table class="comparison-table">
@@ -279,28 +291,30 @@
       </table>
     </div>
 
-    <div class="reflection-block" style="border-top-color: var(--accent); margin-top: 48px;">
-      <div class="reflection-label">Outcomes</div>
-      <p>The usability test with Australian managers confirmed the design direction before handoff. Participants responded positively to the side-by-side product image layout and size availability data, identifying these as the most useful inputs for price-match decisions. The workflow continuity principle of keeping approve, reject and navigation actions within the inspector was validated when users noted they could move through multiple products without returning to the table. The MVP was scoped and delivered within the 4-week design timeline and handed off to the development team for build.</p>
+    <div class="evidence-block" style="margin-top: 48px;">
+      <h3>Outcomes</h3>
+      <p>Usability testing with Australian managers confirmed all three decisions above before handoff, and the MVP shipped within the 4-week design timeline.</p>
     </div>
+  </section>
 
-    <div class="reflection-block">
-      <div class="reflection-label">What I'd do differently</div>
-       <div class="sidenote-layout">
-    <div class="sidenote">
-      <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
-      <div class="sidenote__bubble">
-        <div class="sidenote__label">Learning Point</div>
-        <div class="sidenote__body">Defining the target user should be a scoping decision, not a discovery outcome.</div>
+  <!-- SECTION 05 -->
+  <section>
+    <div class="section-label">05 <span class="sep">▪</span> Reflection</div>
+    <h2>What I'd do differently</h2>
+
+    <div class="sidenote-layout">
+      <div class="sidenote">
+        <img class="sidenote__avatar" src="../../portrait.png" alt="Colette">
+        <div class="sidenote__bubble">
+          <div class="sidenote__label">Learning Point</div>
+          <div class="sidenote__body">Defining the target user should be a scoping decision, not a discovery outcome.</div>
+        </div>
       </div>
     </div>
-  </div>
 
-      <p>Conducting region-specific user research earlier would have saved iteration time. Including non-Australian users in Iteration 1 introduced noise into the requirements and prompted a mid-project pivot in design direction. In future, I would align research participant criteria with the primary use case before building the first prototype.</p>
+    <p>Region-specific research should have come before the first prototype, not after. Running Iteration 1 globally cost a mid-project pivot.</p>
 
- 
-      <p>I would also invest more in the accessibility of the UI, particularly link and button contrast. The Product Inspector is data-heavy by nature, and higher contrast standards would reduce attention load for Pricing Managers, helping them action price decisions faster and with greater confidence.</p>
-    </div>
+    <p>I'd also invest more in link and button contrast, given how data-dense this view is, to reduce attention load for Pricing Managers.</p>
   </section>
 
   <p class="disclaimer">Some visuals have been adapted to highlight key design decisions and avoid reproducing product interfaces in full.</p>
