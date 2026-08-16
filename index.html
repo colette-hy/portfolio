@@ -31,30 +31,55 @@
 
   <main>
 
-    <!-- HERO
-         Changes vs. original:
+    <!-- HERO CAROUSEL
+         Slide 1: Hero intro (name, subtitle, portrait) — unchanged content
+         Slide 2: former standalone "About" section — now opt-in, reached by
+                  clicking/swiping to page 2, instead of competing with the
+                  hero for a hirer's first-15-seconds scan.
          · h1 is now much larger and flush-left (CSS handles scale)
          · Portrait offset downward via CSS margin-top to create visual tension
          · Subtitle rewritten: personal moment opener instead of career summary
          · Removed hero-tagline (subtitle carries the full intro now)
     -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Colette Fung</h1>
-        <p class="hero-subtitle">Grounded in psychology and information systems, I lead design practice by growing designers, governing shared standards, and steering decisions across organisational boundaries.</p>
-      </div>
-      <img src="portrait.png" alt="Colette Fung" class="portrait-img">
-    </section>
+    <section class="hero-carousel" aria-roledescription="carousel" aria-label="Introduction">
+      <div class="hero-carousel-viewport" id="heroCarouselViewport">
+        <div class="hero-carousel-track" id="heroCarouselTrack">
 
-    <!-- ABOUT ME — unchanged copy, same section -->
-    <section class="section" id="about">
-      <h2>Curiosity as a career strategy</h2>
-      <div class="about-prose">
-        <p>I am a curious learner at heart, and that curiosity has shaped the way I have built my career. My bachelor's degree in Psychology gave me a strong foundation in research methods and understanding human behaviour, which has translated naturally into UX research throughout my work.</p>
-        <p>As AI continues to reshape our field, I felt the pull to look beyond design and went back to the classroom. I recently completed my Master of Science in Information Systems at Nanyang Technological University, pursued part-time alongside my full-time design role.</p>
-        <p>Rather than choosing electives closer to my existing strengths, I took on more technical ones, including Python, Java and XML for mobile, SQL, and AWS. They stretched me, and gave me a much clearer sense of how IT systems interlace with one another.</p>
-        <p>The programme also reminded me that as AI tools grow more abundant, judgement and critical thinking are what set us apart. Knowing how the pieces fit together is what equips me to synthesise the noise, weigh the trade-offs, and make sound design decisions in this evolving landscape.</p>
-        <p>When I am not designing, you will probably find me on a hiking trail or planning my next trip. My hiking journey started with Mount Kinabalu, and two years later I made it up Mount Fuji at sunrise. These days, I keep the habit alive with occasional hikes around Malaysia and Hong Kong.</p>
+          <!-- SLIDE 1: Hero -->
+          <div class="hero-carousel-slide" id="heroSlide-0" role="group" aria-roledescription="slide" aria-label="1 of 2: Introduction">
+            <div class="hero">
+              <div class="hero-text">
+                <h1>Colette Fung</h1>
+                <p class="hero-subtitle">Grounded in psychology and information systems, I lead design practice by growing designers, governing shared standards, and steering decisions across organisational boundaries.</p>
+              </div>
+              <img src="portrait.png" alt="Colette Fung" class="portrait-img">
+            </div>
+          </div>
+
+          <!-- SLIDE 2: About Me — unchanged copy, now page 2 of the carousel -->
+          <div class="hero-carousel-slide" id="heroSlide-1" role="group" aria-roledescription="slide" aria-label="2 of 2: Curiosity as a career strategy" aria-hidden="true">
+            <div class="section about-slide" id="about">
+              <h2>Curiosity as a career strategy</h2>
+              <div class="about-prose">
+                <p>I am a curious learner at heart, and that curiosity has shaped the way I have built my career. My bachelor's degree in Psychology gave me a strong foundation in research methods and understanding human behaviour, which has translated naturally into UX research throughout my work.</p>
+                <p>As AI continues to reshape our field, I felt the pull to look beyond design and went back to the classroom. I recently completed my Master of Science in Information Systems at Nanyang Technological University, pursued part-time alongside my full-time design role.</p>
+                <p>Rather than choosing electives closer to my existing strengths, I took on more technical ones, including Python, Java and XML for mobile, SQL, and AWS. They stretched me, and gave me a much clearer sense of how IT systems interlace with one another.</p>
+                <p>When I am not designing, you will probably find me on a hiking trail or planning my next trip. My hiking journey started with Mount Kinabalu, and two years later I made it up Mount Fuji at sunrise. These days, I keep the habit alive with occasional hikes around Malaysia and Hong Kong.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Carousel controls -->
+      <div class="hero-carousel-controls">
+        <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="Previous slide" disabled>&larr;</button>
+        <div class="hero-carousel-dots" role="tablist" aria-label="Choose slide">
+          <button type="button" class="hero-carousel-dot is-active" role="tab" aria-selected="true" aria-controls="heroSlide-0" data-slide="0" aria-label="Slide 1 of 2: Introduction"></button>
+          <button type="button" class="hero-carousel-dot" role="tab" aria-selected="false" aria-controls="heroSlide-1" data-slide="1" aria-label="Slide 2 of 2: Curiosity as a career strategy"></button>
+        </div>
+        <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="Next slide">&rarr;</button>
       </div>
     </section>
 
@@ -165,29 +190,47 @@
 
       <div class="qual-block">
         <p class="qual-block-title">Design-related Work History</p>
-        <ul class="work-list">
+        <ul class="work-list work-list--accordion">
           <li class="work-item">
-            <span class="work-period">Apr 2023 – Present</span>
-            <div class="work-body">
-              <div class="work-title">Senior UX Designer</div>
-              <div class="work-company">Housing and Development Board (HDB), Singapore</div>
-              <p class="work-desc">Sole steward of the Intranet Design System at Singapore's public housing authority, setting contribution standards and governing component quality across product teams. Coordinates UX alignment between in-house teams and external agency partners for citizen-facing portals and e-services. Leading the end-to-end BTO application journey redesign since early 2026.</p>
+            <button type="button" class="work-toggle" aria-expanded="false" aria-controls="work-panel-1" id="work-toggle-1">
+              <span class="work-period">Apr 2023 – Present</span>
+              <span class="work-summary">
+                <span class="work-title">Senior UX Designer</span>
+                <span class="work-company">Housing and Development Board (HDB), Singapore</span>
+              </span>
+            </button>
+            <div class="work-panel" id="work-panel-1" role="region" aria-labelledby="work-toggle-1" aria-hidden="true">
+              <div class="work-panel-inner">
+                <p class="work-desc">Sole steward of the Intranet Design System at Singapore's public housing authority, setting contribution standards and governing component quality across product teams. Coordinates UX alignment between in-house teams and external agency partners for citizen-facing portals and e-services. Leading the end-to-end BTO application journey redesign since early 2026.</p>
+              </div>
             </div>
           </li>
           <li class="work-item">
-            <span class="work-period">Apr 2019 – Oct 2022</span>
-            <div class="work-body">
-              <div class="work-title">UX Designer</div>
-              <div class="work-company">Global Fashion Group (GFG), Singapore</div>
-              <p class="work-desc">Product design for B2B e-commerce platforms (ZALORA, THE ICONIC, Dafiti, Lamoda) across Malaysia, Singapore, Thailand and Australia markets. End-to-end UX from discovery to delivery in an Agile environment.</p>
+            <button type="button" class="work-toggle" aria-expanded="false" aria-controls="work-panel-2" id="work-toggle-2">
+              <span class="work-period">Apr 2019 – Oct 2022</span>
+              <span class="work-summary">
+                <span class="work-title">UX Designer</span>
+                <span class="work-company">Global Fashion Group (GFG), Singapore</span>
+              </span>
+            </button>
+            <div class="work-panel" id="work-panel-2" role="region" aria-labelledby="work-toggle-2" aria-hidden="true">
+              <div class="work-panel-inner">
+                <p class="work-desc">Product design for B2B e-commerce platforms (ZALORA, THE ICONIC, Dafiti, Lamoda) across Malaysia, Singapore, Thailand and Australia markets. End-to-end UX from discovery to delivery in an Agile environment.</p>
+              </div>
             </div>
           </li>
           <li class="work-item">
-            <span class="work-period">Apr 2013 – Apr 2019</span>
-            <div class="work-body">
-              <div class="work-title">Web Builder</div>
-              <div class="work-company">Carlson Wagonlit Singapore (CWT)</div>
-              <p class="work-desc">Front-end web design for corporate event websites and attendee management platforms, serving international clients including Hewlett-Packard across Asia Pacific and Japan.</p>
+            <button type="button" class="work-toggle" aria-expanded="false" aria-controls="work-panel-3" id="work-toggle-3">
+              <span class="work-period">Apr 2013 – Apr 2019</span>
+              <span class="work-summary">
+                <span class="work-title">Web Builder</span>
+                <span class="work-company">Carlson Wagonlit Singapore (CWT)</span>
+              </span>
+            </button>
+            <div class="work-panel" id="work-panel-3" role="region" aria-labelledby="work-toggle-3" aria-hidden="true">
+              <div class="work-panel-inner">
+                <p class="work-desc">Front-end web design for corporate event websites and attendee management platforms, serving international clients including Hewlett-Packard across Asia Pacific and Japan.</p>
+              </div>
             </div>
           </li>
         </ul>
@@ -222,6 +265,106 @@
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script>
+    /* HERO CAROUSEL — slide 1 (intro) / slide 2 (About: "Curiosity as a career strategy")
+       Arrow buttons, dots, swipe, and arrow-key navigation all route through goTo(). */
+    (function () {
+      var carousel = document.querySelector('.hero-carousel');
+      if (!carousel) return;
+
+      var viewport = carousel.querySelector('.hero-carousel-viewport');
+      var track = carousel.querySelector('.hero-carousel-track');
+      var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide'));
+      var dots = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-dot'));
+      var prevBtn = carousel.querySelector('.hero-carousel-prev');
+      var nextBtn = carousel.querySelector('.hero-carousel-next');
+      var index = 0;
+
+      function setHeight() {
+        // Slides hold very different amounts of copy (a two-line subtitle vs.
+        // five paragraphs), so the viewport height is set to match whichever
+        // slide is active rather than being fixed to the taller one.
+        viewport.style.height = slides[index].offsetHeight + 'px';
+      }
+
+      function update() {
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        slides.forEach(function (slide, i) {
+          var active = i === index;
+          slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+          slide.querySelectorAll('a, button, input, textarea, select, [tabindex]').forEach(function (el) {
+            el.tabIndex = active ? 0 : -1;
+          });
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === index);
+          dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+        setHeight();
+      }
+
+      function goTo(i) {
+        index = Math.max(0, Math.min(slides.length - 1, i));
+        update();
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(index - 1); });
+      nextBtn.addEventListener('click', function () { goTo(index + 1); });
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); });
+      });
+
+      carousel.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { goTo(index + 1); }
+        if (e.key === 'ArrowLeft') { goTo(index - 1); }
+      });
+
+      // Touch swipe (mobile)
+      var touchStartX = null;
+      viewport.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      viewport.addEventListener('touchend', function (e) {
+        if (touchStartX === null) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) {
+          goTo(dx < 0 ? index + 1 : index - 1);
+        }
+        touchStartX = null;
+      }, { passive: true });
+
+      window.addEventListener('resize', setHeight);
+      // Web fonts (Playfair Display / Source Sans) can finish loading after
+      // this script runs and reflow the slide text, so re-measure once
+      // they're ready instead of leaving the viewport stuck at an early,
+      // too-short height.
+      window.addEventListener('load', setHeight);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(setHeight);
+      }
+      update();
+    })();
+  </script>
+  <script>
+    /* WORK HISTORY ACCORDION — collapsed rows show only period / title /
+       company; clicking (or Enter/Space on) a row reveals its description. */
+    (function () {
+      var toggles = document.querySelectorAll('.work-toggle');
+      toggles.forEach(function (btn) {
+        var item = btn.closest('.work-item');
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!item || !panel) return;
+        btn.addEventListener('click', function () {
+          var willOpen = btn.getAttribute('aria-expanded') !== 'true';
+          btn.setAttribute('aria-expanded', String(willOpen));
+          panel.setAttribute('aria-hidden', String(!willOpen));
+          item.classList.toggle('is-open', willOpen);
+        });
+      });
+    })();
+  </script>
   <script>
     (function () {
       var nav = document.querySelector('.portfolio-nav');
