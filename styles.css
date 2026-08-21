@@ -745,18 +745,18 @@ main {
   color: var(--teal);
 }
 
-/* --- Work History — borderless accordion ---
-   Collapsed: only period / title / company show (the .work-toggle row).
-   Expanded: reveals .work-desc via a grid-template-rows 0fr -> 1fr animation
-   (no JS height measuring needed). No dividing borders between rows; a
-   hover/focus tint on the row itself signals it's interactive instead.
+/* --- Work History — always-visible two-column rows ---
+   Was a click-to-expand accordion. The collapsed state hid each description
+   at zero height, which kept it out of browser find-in-page results and put
+   the strongest paragraph on the page behind a click. With three short
+   entries the mechanism cost more than it saved, so every row now renders
+   period on the left, title / company / description on the right.
    ---------------------------------------------------------- */
 .work-list { list-style: none; }
 
 .work-item { border-radius: 4px; }
 
-.work-toggle {
-  all: unset;
+.work-row {
   display: grid;
   grid-template-columns: 140px 1fr;
   align-items: start;
@@ -766,15 +766,6 @@ main {
   padding: 20px 12px;
   margin: 0 -12px;
   border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.work-toggle:hover { background: var(--paper-warm); }
-
-.work-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
 }
 
 .work-period {
@@ -803,27 +794,12 @@ main {
   color: var(--accent-text);
 }
 
-/* Panel: height-animated via grid-template-rows, no JS measuring */
-.work-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
-}
-
-.work-item.is-open .work-panel { grid-template-rows: 1fr; }
-
-.work-panel-inner {
-  overflow: hidden;
-  padding-left: 172px;   /* aligns under the title/company column (140px + 32px gap) */
-  padding-right: 32px;
-}
-
 .work-desc {
   font-size: 15px;
   color: var(--gray-dark);
   line-height: 1.6;
   max-width: 560px;
-  padding: 2px 0 20px;
+  padding: 8px 0 0;
 }
 
 .lang-list {
@@ -910,12 +886,11 @@ main {
   .edu-item { grid-template-columns: 1fr; gap: 4px; }
   .edu-year { padding-top: 0; }
 
-  .work-toggle {
+  .work-row {
     grid-template-columns: 1fr;
     padding: 16px 12px;
   }
   .work-period { padding-top: 0; margin-bottom: 4px; }
-  .work-panel-inner { padding-left: 12px; padding-right: 12px; }
 
   .site-footer { padding: 32px 24px; flex-direction: column; gap: 12px; }
 }

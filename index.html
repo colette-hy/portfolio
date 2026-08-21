@@ -197,45 +197,37 @@
 
       <div class="qual-block">
         <p class="qual-block-title">Design-related Work History</p>
-        <ul class="work-list work-list--accordion">
+        <!-- Work history is always visible. The accordion that used to wrap these
+             descriptions collapsed them to zero height, which hid them from
+             browser find-in-page and cost a click to read the most important
+             paragraph on the page. Three short entries do not need the mechanism. -->
+        <ul class="work-list">
           <li class="work-item">
-            <button type="button" class="work-toggle" aria-expanded="false" aria-controls="work-panel-1" id="work-toggle-1">
+            <div class="work-row">
               <span class="work-period">Apr 2023 – Present</span>
-              <span class="work-summary">
+              <div class="work-summary">
                 <span class="work-title">Senior UX Designer</span>
                 <span class="work-company">Housing and Development Board (HDB), Singapore</span>
-              </span>
-            </button>
-            <div class="work-panel" id="work-panel-1" role="region" aria-labelledby="work-toggle-1" aria-hidden="true">
-              <div class="work-panel-inner">
                 <p class="work-desc">Sole steward of the Intranet Design System at Singapore's public housing authority, setting contribution standards and governing component quality across product teams. Coordinates UX alignment between in-house teams and external agency partners for citizen-facing portals and e-services. Leading the redesign of application submission, balloting chance and scheme eligibility evaluation within the BTO application journey since early 2026.</p>
               </div>
             </div>
           </li>
           <li class="work-item">
-            <button type="button" class="work-toggle" aria-expanded="false" aria-controls="work-panel-2" id="work-toggle-2">
+            <div class="work-row">
               <span class="work-period">Apr 2019 – Oct 2022</span>
-              <span class="work-summary">
+              <div class="work-summary">
                 <span class="work-title">UX Designer</span>
                 <span class="work-company">Global Fashion Group (GFG), Singapore</span>
-              </span>
-            </button>
-            <div class="work-panel" id="work-panel-2" role="region" aria-labelledby="work-toggle-2" aria-hidden="true">
-              <div class="work-panel-inner">
                 <p class="work-desc">Product design for B2B e-commerce platforms (ZALORA, THE ICONIC, Dafiti, Lamoda) across Malaysia, Singapore, Thailand and Australia markets. End-to-end UX from discovery to delivery in an Agile environment.</p>
               </div>
             </div>
           </li>
           <li class="work-item">
-            <button type="button" class="work-toggle" aria-expanded="false" aria-controls="work-panel-3" id="work-toggle-3">
+            <div class="work-row">
               <span class="work-period">Apr 2013 – Apr 2019</span>
-              <span class="work-summary">
+              <div class="work-summary">
                 <span class="work-title">Web Builder</span>
                 <span class="work-company">Carlson Wagonlit Singapore (CWT)</span>
-              </span>
-            </button>
-            <div class="work-panel" id="work-panel-3" role="region" aria-labelledby="work-toggle-3" aria-hidden="true">
-              <div class="work-panel-inner">
                 <p class="work-desc">Front-end web design for corporate event websites and attendee management platforms, serving international clients including Hewlett-Packard across Asia Pacific and Japan.</p>
               </div>
             </div>
@@ -352,24 +344,6 @@
         document.fonts.ready.then(setHeight);
       }
       update();
-    })();
-  </script>
-  <script>
-    /* WORK HISTORY ACCORDION — collapsed rows show only period / title /
-       company; clicking (or Enter/Space on) a row reveals its description. */
-    (function () {
-      var toggles = document.querySelectorAll('.work-toggle');
-      toggles.forEach(function (btn) {
-        var item = btn.closest('.work-item');
-        var panel = document.getElementById(btn.getAttribute('aria-controls'));
-        if (!item || !panel) return;
-        btn.addEventListener('click', function () {
-          var willOpen = btn.getAttribute('aria-expanded') !== 'true';
-          btn.setAttribute('aria-expanded', String(willOpen));
-          panel.setAttribute('aria-hidden', String(!willOpen));
-          item.classList.toggle('is-open', willOpen);
-        });
-      });
     })();
   </script>
   <script>
