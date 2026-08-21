@@ -322,6 +322,29 @@ main {
   line-height: 1.65;
 }
 
+/* Hero capability tags — reuses the .cs-tag shape from the case-study cards,
+   but lightened to outlined pills. The solid ink fill used on cards would
+   put four heavy blocks directly under the headline and fight the h1 for
+   attention; outlined keeps the hero airy while still scanning as a set. */
+.hero-capabilities {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  gap: 8px;
+  max-width: 520px;
+}
+
+.hero-capabilities .cs-tag {
+  background: transparent;
+  color: var(--accent-text);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+}
+
+@media (max-width: 640px) {
+  .hero-capabilities .cs-tag { white-space: normal; }
+}
+
 .hero-tagline {
   font-family: 'Playfair Display', serif;
   font-style: italic;
