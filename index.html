@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow">
   <title>Colette Fung, Senior UX Designer based in Singapore</title>
-  <meta name="description" content="Colette Fung, Senior UX Designer in Singapore. Sole steward of the intranet design system at Singapore's public housing authority." />
+  <meta name="description" content="Colette Fung, Senior UX Designer in Singapore. Once a sole steward of the intranet design system at Singapore's public housing authority." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,124 +31,73 @@
 
   <main>
 
-    <!-- HERO CAROUSEL
-         Slide 1: Hero intro (name, subtitle, portrait) — unchanged content
-         Slide 2: former standalone "About" section — now opt-in, reached by
-                  clicking/swiping to page 2, instead of competing with the
-                  hero for a hirer's first-15-seconds scan.
-         · h1 is now much larger and flush-left (CSS handles scale)
-         · Portrait offset downward via CSS margin-top to create visual tension
-         · Subtitle rewritten: personal moment opener instead of career summary
-         · Removed hero-tagline (subtitle carries the full intro now)
-    -->
-    <section class="hero-carousel" aria-roledescription="carousel" aria-label="Introduction">
-      <div class="hero-carousel-viewport" id="heroCarouselViewport">
-        <div class="hero-carousel-track" id="heroCarouselTrack">
-
-          <!-- SLIDE 1: Hero -->
-          <div class="hero-carousel-slide" id="heroSlide-0" role="group" aria-roledescription="slide" aria-label="1 of 2: Introduction">
-            <div class="hero">
-              <div class="hero-text">
-                <p class="hero-eyebrow">Senior UX Designer &middot; Singapore</p>
-                <h1>Colette Fung</h1>
-                <p class="hero-subtitle">Sole steward of the intranet design system at Singapore's public housing authority. I set what enters it, who contributes, and how product teams build on it. Public sector now, B2B e-commerce across four markets before that.</p>
-                <ul class="cs-tags hero-capabilities" aria-label="Areas of practice">
-                  <li class="cs-tag">Design system governance</li>
-                  <li class="cs-tag">UX research</li>
-                  <li class="cs-tag">End-to-end product design</li>
-                  <li class="cs-tag">Cross-org alignment</li>
-                </ul>
-              </div>
-              <img src="portrait.png" alt="Colette Fung" class="portrait-img">
-            </div>
-          </div>
-
-          <!-- SLIDE 2: About Me — unchanged copy, now page 2 of the carousel -->
-          <div class="hero-carousel-slide" id="heroSlide-1" role="group" aria-roledescription="slide" aria-label="2 of 2: From people to systems" aria-hidden="true">
-            <div class="section about-slide" id="about">
-              <h2>From people to systems</h2>
-              <div class="about-prose">
-                <p>I am a curious learner at heart, and that curiosity has shaped the way I have built my career. My bachelor's degree in Psychology gave me a strong foundation in research methods and understanding human behaviour, which has translated naturally into UX research throughout my work.</p>
-                <p>As AI continues to reshape our field, I felt the pull to look beyond design and went back to the classroom. I recently completed my Master of Science in Information Systems at Nanyang Technological University, pursued part-time alongside my full-time design role.</p>
-                <p>Rather than choosing electives closer to my existing strengths, I took on more technical ones, including Python, Java and XML for mobile, SQL, and AWS. They stretched me, and gave me a much clearer sense of how IT systems interlace with one another.</p>
-                <p>When I am not designing, you will probably find me on a hiking trail or planning my next trip. My hiking journey started with Mount Kinabalu, and two years later I made it up Mount Fuji at sunrise. These days, I keep the habit alive with occasional hikes around Malaysia and Hong Kong.</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Colette Fung</h1>
+        <p class="hero-role">Senior UX Designer, Singapore</p>
+        <p class="hero-subtitle">Once a sole steward of the intranet design system at Singapore's public housing authority. I set what enters it, who contributes, and how product teams build on it. Public sector now, B2B e-commerce across four markets before that.</p>
+        <ul class="cs-tags hero-capabilities" aria-label="Areas of practice">
+          <li class="cs-tag">Design system governance</li>
+          <li class="cs-tag">UX research</li>
+          <li class="cs-tag">End-to-end product design</li>
+          <li class="cs-tag">Cross-org alignment</li>
+        </ul>
       </div>
+      <picture class="portrait">
+        <source srcset="portrait.webp" type="image/webp">
+        <img src="portrait.png" alt="Colette Fung" class="portrait-img" width="1023" height="1537">
+      </picture>
+    </div>
 
-      <!-- Carousel controls -->
-      <div class="hero-carousel-controls">
-        <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="Previous slide" disabled>&larr;</button>
-        <div class="hero-carousel-dots" role="tablist" aria-label="Choose slide">
-          <button type="button" class="hero-carousel-dot is-active" role="tab" aria-selected="true" aria-controls="heroSlide-0" data-slide="0" aria-label="Slide 1 of 2: Introduction"></button>
-          <button type="button" class="hero-carousel-dot" role="tab" aria-selected="false" aria-controls="heroSlide-1" data-slide="1" aria-label="Slide 2 of 2: From people to systems"></button>
-        </div>
-        <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="Next slide">&rarr;</button>
+    <!-- CASE STUDIES: Timeline leads full width, the other two pair below -->
+    <section class="section" id="work">
+      <h2 class="section-label">Case Studies</h2>
+      <div class="cs-list">
+
+        <a href="casestudy/HDB-timeline/timeline-case-study.html" class="cs-entry cs-entry--lead">
+          <div class="cs-entry-media">
+            <img src="casestudy/HDB-timeline/final-design-desktop.png" alt="Final design of the BTO application timeline page" style="object-position: center 18%;">
+          </div>
+          <div class="cs-entry-text">
+            <h3 class="cs-entry-title">One timeline, four teams, two views</h3>
+            <p class="cs-entry-line">Two halves of the BTO application timeline, built by different teams, brought back into one layout pattern.</p>
+            <p class="cs-entry-context">HDB &middot; Citizen service</p>
+          </div>
+        </a>
+
+        <a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html" class="cs-entry">
+          <div class="cs-entry-media">
+            <img src="casestudy/DesignSystem-Milestone/images/final_component_scroller.png" alt="Final Milestone component in the intranet design system" style="object-position: center 12%;">
+          </div>
+          <div class="cs-entry-text">
+            <h3 class="cs-entry-title">Endorsing a new Milestone component</h3>
+            <p class="cs-entry-line">I counter-proposed an existing component first, and endorsed the new one only after it passed three system criteria.</p>
+            <p class="cs-entry-context">HDB &middot; Intranet design system</p>
+          </div>
+        </a>
+
+        <a href="casestudy/GFG-productInspector/product-inspector-case-study.html" class="cs-entry">
+          <div class="cs-entry-media">
+            <img src="casestudy/GFG-productInspector/images/final_design.png" alt="Final Product Inspector design showing competitor price suggestions" style="object-position: center 10%;">
+          </div>
+          <div class="cs-entry-text">
+            <h3 class="cs-entry-title">Product Inspector for competitor price match</h3>
+            <p class="cs-entry-line">A product-level view for pricing managers deciding, one product at a time, whether to match a competitor.</p>
+            <p class="cs-entry-context">GFG &middot; B2B e-commerce</p>
+          </div>
+        </a>
+
       </div>
     </section>
 
-    <!-- CASE STUDIES
-         Changes vs. original:
-         · Grid is now 2-column (was 3-column)
-         · First card gets class cs-card--featured and a cs-card-content wrapper
-           so it can display as a full-width horizontal card (image left, content right)
-         · Cards 2 & 3 are unchanged structurally but benefit from the 2-col layout
-    -->
-    <section class="section" id="work">
-      <p class="section-label">Case Studies</p>
-      <div class="cs-grid">
-
-        <!-- CARD 1: Featured — full-width horizontal layout -->
-        <a href="casestudy/HDB-timeline/timeline-case-study.html" class="cs-card cs-card--featured">
-          <div class="cs-card-thumb">
-            <img src="casestudy/HDB-timeline/final-design-desktop.png" alt="Application Timeline final design" style="object-position: center 18%;">
-          </div>
-          <div class="cs-card-content">
-            <div class="cs-card-eyebrow">Public Sector</div>
-            <div class="cs-card-title">Application Timeline</div>
-            <div class="cs-tags">
-              <span class="cs-tag">Citizen service</span>
-              <span class="cs-tag">Stakeholder management</span>
-              <span class="cs-tag">Cross-org alignment</span>
-              <span class="cs-tag">Unified experience</span>
-            </div>
-            <div class="cs-card-arrow">&rarr;</div>
-          </div>
-        </a>
-
-        <!-- CARD 2 -->
-        <a href="casestudy/DesignSystem-Milestone/milestone-component-case-study.html" class="cs-card">
-          <div class="cs-card-thumb">
-            <img src="casestudy/DesignSystem-Milestone/images/final_component_scroller.png" alt="Milestone Component final design" style="object-position: center 12%;">
-          </div>
-          <div class="cs-card-eyebrow">Business Design System</div>
-          <div class="cs-card-title">Milestone Component</div>
-          <div class="cs-tags">
-            <span class="cs-tag">Design system ownership</span>
-            <span class="cs-tag">Scalable components</span>
-            <span class="cs-tag">System thinking</span>
-          </div>
-          <div class="cs-card-arrow">&rarr;</div>
-        </a>
-
-        <!-- CARD 3 -->
-        <a href="casestudy/GFG-productInspector/product-inspector-case-study.html" class="cs-card">
-          <div class="cs-card-thumb">
-            <img src="casestudy/GFG-productInspector/images/final_design.png" alt="Product Inspector final design" style="object-position: center 10%;">
-          </div>
-          <div class="cs-card-eyebrow">E-commerce</div>
-          <div class="cs-card-title">Product Inspector</div>
-          <div class="cs-tags">
-            <span class="cs-tag">E-commerce</span>
-            <span class="cs-tag">Enterprise platforms</span>
-            <span class="cs-tag">Online retail pricing</span>
-          </div>
-          <div class="cs-card-arrow">&rarr;</div>
-        </a>
-
+    <!-- ABOUT — permanent section (was slide 2 of the hero carousel) -->
+    <section class="section" id="about">
+      <h2>From people to systems</h2>
+      <div class="about-prose">
+        <p>I am a curious learner at heart, and that curiosity has shaped the way I have built my career. My bachelor's degree in Psychology gave me a strong foundation in research methods and understanding human behaviour, which has translated naturally into UX research throughout my work.</p>
+        <p>As AI continues to reshape our field, I felt the pull to look beyond design and went back to the classroom. I recently completed my Master of Science in Information Systems at Nanyang Technological University, pursued part-time alongside my full-time design role.</p>
+        <p>Rather than choosing electives closer to my existing strengths, I took on more technical ones, including Python, Java and XML for mobile, SQL, and AWS. They stretched me, and gave me a much clearer sense of how IT systems interlace with one another.</p>
+        <p>When I am not designing, you will probably find me on a hiking trail or planning my next trip. My hiking journey started with Mount Kinabalu, and two years later I made it up Mount Fuji at sunrise. These days, I keep the habit alive with occasional hikes around Malaysia and Hong Kong.</p>
       </div>
     </section>
 
@@ -261,88 +210,6 @@
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-  <script>
-    /* HERO CAROUSEL — slide 1 (intro) / slide 2 (About: "From people to systems")
-       Arrow buttons, dots, swipe, and arrow-key navigation all route through goTo(). */
-    (function () {
-      var carousel = document.querySelector('.hero-carousel');
-      if (!carousel) return;
-
-      var viewport = carousel.querySelector('.hero-carousel-viewport');
-      var track = carousel.querySelector('.hero-carousel-track');
-      var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide'));
-      var dots = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-dot'));
-      var prevBtn = carousel.querySelector('.hero-carousel-prev');
-      var nextBtn = carousel.querySelector('.hero-carousel-next');
-      var index = 0;
-
-      function setHeight() {
-        // Slides hold very different amounts of copy (a two-line subtitle vs.
-        // five paragraphs), so the viewport height is set to match whichever
-        // slide is active rather than being fixed to the taller one.
-        viewport.style.height = slides[index].offsetHeight + 'px';
-      }
-
-      function update() {
-        track.style.transform = 'translateX(-' + (index * 100) + '%)';
-        slides.forEach(function (slide, i) {
-          var active = i === index;
-          slide.setAttribute('aria-hidden', active ? 'false' : 'true');
-          slide.querySelectorAll('a, button, input, textarea, select, [tabindex]').forEach(function (el) {
-            el.tabIndex = active ? 0 : -1;
-          });
-        });
-        dots.forEach(function (dot, i) {
-          dot.classList.toggle('is-active', i === index);
-          dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
-        });
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === slides.length - 1;
-        setHeight();
-      }
-
-      function goTo(i) {
-        index = Math.max(0, Math.min(slides.length - 1, i));
-        update();
-      }
-
-      prevBtn.addEventListener('click', function () { goTo(index - 1); });
-      nextBtn.addEventListener('click', function () { goTo(index + 1); });
-      dots.forEach(function (dot, i) {
-        dot.addEventListener('click', function () { goTo(i); });
-      });
-
-      carousel.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') { goTo(index + 1); }
-        if (e.key === 'ArrowLeft') { goTo(index - 1); }
-      });
-
-      // Touch swipe (mobile)
-      var touchStartX = null;
-      viewport.addEventListener('touchstart', function (e) {
-        touchStartX = e.touches[0].clientX;
-      }, { passive: true });
-      viewport.addEventListener('touchend', function (e) {
-        if (touchStartX === null) return;
-        var dx = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(dx) > 40) {
-          goTo(dx < 0 ? index + 1 : index - 1);
-        }
-        touchStartX = null;
-      }, { passive: true });
-
-      window.addEventListener('resize', setHeight);
-      // Web fonts (Playfair Display / Source Sans) can finish loading after
-      // this script runs and reflow the slide text, so re-measure once
-      // they're ready instead of leaving the viewport stuck at an early,
-      // too-short height.
-      window.addEventListener('load', setHeight);
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(setHeight);
-      }
-      update();
-    })();
-  </script>
   <script>
     (function () {
       var nav = document.querySelector('.portfolio-nav');
